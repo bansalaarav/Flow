@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>FLOW</title>
+  </head>
+  <body>
+    <div class="navbar-left">
+      <ul>
+        <li><a href="#">Explore</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="flow-logo">
+      FLOW
+    </div>
+    <div class="navbar-right">
+      <ul>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Register</a></li>
+      </ul>
+    </div>
+    <div class="drone-gif-div">
+      <img src="{{ url_for('static', filename='drone.gif') }}" alt="A gif of a drone" class="drone-gif">
+    </div>
+  </body>
+</html>

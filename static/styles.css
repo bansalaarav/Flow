@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+@font-face {
+  font-family: "Product Sans Regular";
+  src: url("./ProductSansRegular.ttf");
+}
+
+@font-face {
+  font-family: "Product Sans Bold";
+  src: url("./ProductSansBold.ttf");
+}
+
+body {
+  background-color: #2D89E1;
+  font-family: "Product Sans Regular", sans-serif;
+  color: white;
+}
+
+.flow-logo {
+  font-family: "Righteous", sans-serif;
+  font-size: 6vh;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform:translate(-50%, -50%);
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+}
+
+.navbar-left {
+  position: absolute;
+  top: 9%;
+  left: 10%;
+}
+
+.navbar-right {
+  position: absolute;
+  top: 9%;
+  right: 10%;
+}
+
+li {
+  float: left;
+  margin-right: 9vh;
+  font-size: 2vh;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+
+li a:hover {
+  color: black;
+}
+
+.drone-gif-div {
+  height: 30vh;
+  position: absolute;
+  top: 20%;
+  right: 10%;
+}
+
+.drone-gif {
+  border-radius: 50px;
+}
