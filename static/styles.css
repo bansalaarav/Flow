@@ -25,7 +25,7 @@ body {
   transform:translate(-50%, -50%);
 }
 
-ul {
+.nav {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -45,13 +45,13 @@ ul {
   right: 10%;
 }
 
-li {
+.nav-li {
   float: left;
   margin-right: 9vh;
   font-size: 2vh;
 }
 
-li a {
+.nav-li a {
   display: block;
   color: white;
   text-align: center;
@@ -59,7 +59,7 @@ li a {
 }
 
 
-li a:hover {
+.nav-li a:hover {
   color: black;
 }
 
@@ -72,4 +72,73 @@ li a:hover {
 
 .drone-gif {
   border-radius: 50px;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+
+@media screen and (max-width: 1220px) {
+  .mobile-menu {
+    display: contents;
+  }
+  .navbar-left {
+    display: none;
+  }
+  .navbar-right {
+    display: none;
+  }
+
+  .mobilemenuul {
+    text-align: right;
+
+  }
+
+  .mobilemenuli {
+      list-style-type: none;
+      color: white;
+  }
+
+  .menu {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    padding: 0;
+  }
+  .line {
+    fill: none;
+    stroke: black;
+    stroke-width: 6;
+
+  }
+  .line1 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+  }
+  .line2 {
+    stroke-dasharray: 60 60;
+    stroke-width: 6;
+  }
+  .line3 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+  }
+  .opened .line1 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+  }
+  .opened .line2 {
+    stroke-dasharray: 1 60;
+    stroke-dashoffset: -30;
+    stroke-width: 6;
+  }
+  .opened .line3 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+  }
+
 }
