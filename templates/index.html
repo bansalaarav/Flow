@@ -7,6 +7,11 @@
       html {
         scroll-behavior: smooth;
       }
+      body {
+          font-family: 'Product Sans Regular', serif;
+          padding: 0;
+          margin: 0;
+      }
 
       #image-container {
           margin-top: 5vh;
@@ -109,6 +114,9 @@
               width: 45%;
               display: inline-block;
               font-size: 20px;
+              position: relative;
+              left: 50%;
+              transform: translate(-60%);
           }
 
           #explore-button-2 {
@@ -121,9 +129,39 @@
       .wrapper2 {
         margin-left: 2%;
       }
+
+      h3 {
+        text-align: center;
+      }
+
+      .msg {
+        display:inline-block;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .wrap-msg {
+        background-color: white;
+        display: block;
+        margin-top: -10vh;
+        padding-bottom: 2vh;
+        padding-top: 1%;
+        margin-bottom: 2%;
+      }
     </style>
   </head>
   <body>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+        <div class="wrap-msg">
+          <h3 class="msg">{{ message }}</h3>
+        </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
     <div id="header"></div>
     <img src="{{url_for('static', filename='drone.gif')}}" alt="flying-drone" id="image-container">
     <div class="wrapper2">
@@ -144,6 +182,10 @@
       $("#header").load("{{ url_for('static', filename='header.html') }}");
       $("#footer").load("{{ url_for('static', filename='footer.html') }}");
     });
+
+    setTimeout(function() {
+      $('.wrap-msg').fadeOut('fast');
+    }, 3000);
 
   </script>
   </body>

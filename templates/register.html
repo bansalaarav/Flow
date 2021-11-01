@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Login Portal</title>
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script>
+
+        setTimeout(function() {
+          $('.msg').fadeOut('fast');
+        }, 3000);
+
+      </script>
+        <style>
+
+
+
+        body {
+            font-family: 'Product Sans Regular', serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        #bg2 {
+          background-image: url("{{ url_for('static', filename='login-bg.jpg') }}");
+          background-size:cover;
+          background-repeat: no-repeat;
+          text-align: center;
+          height: 100vh;
+        }
+
+
+        .login-title {
+            font-weight: 'bold';
+            font-size: 7vh;
+            margin: 0;
+            padding-bottom: 1%;
+        }
+
+        .fields {
+            width: 28vw;
+            margin-bottom: 3vh;
+            border-radius: 8px;
+            height: 5vh;
+            color: gray;
+            font-family: 'Product Sans Regular', monospace;
+            font-size: 2.5vh !important;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-left: 3vh;
+            margin-right: 3vh;
+            border: none;
+        }
+
+        @media screen and (max-width: 1500px) {
+          .fields {
+              width: 80vw;
+              margin-bottom: 3vh;
+              border-radius: 8px;
+              height: 5vh;
+              color: gray;
+              font-family: 'Product Sans Regular', monospace;
+              font-size: 20px;
+              padding-left: 10px;
+              padding-right: 10px;
+              margin-left: 3vh;
+              margin-right: 3vh;
+              border: none;
+          }
+        }
+
+        .fields:focus {
+          outline: none;
+        }
+
+        form #submit-button {
+            background-color: #2D89E1;
+            border-radius: 50px;
+            width: 7vh;
+            height: 5vh;
+            color: white;
+            font-family: 'Product Sans Regular', serif;
+            font-size: 2vh !important;
+            border: none;
+        }
+
+        form #submit-button:hover {
+            background-color: #10599e;
+            color: white;
+            cursor: pointer;
+        }
+
+        .center {
+          margin: 0;
+          position: relative;
+          top: 50%;
+          left: 50%;
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+        }
+
+        .register {
+          color: white;
+          font-size: 2vh !important;
+        }
+
+        .register a {
+          color: white;
+        }
+
+        .register a:hover {
+          color: #2D89E1;
+        }
+
+        h3 {
+          text-align: center;
+        }
+
+        .msg {
+          display:inline-block;
+          position: relative;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+
+        </style>
+    </head>
+    <body>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <h3 class="msg">{{ message }}</h3>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <div id="bg2">
+        <div class="center">
+
+        <h1 class="login-title">Register</h1>
+        <form action="/register/" method="POST">
+          <input type="text" class="fields" placeholder="First Name" name="first-name" required> <br>
+          <input type="text" class="fields" placeholder="Last Name" name="last-name" required> <br>
+          <input type="email" class="fields" placeholder="E-Mail" name="email" required> <br>
+          <input type="password" class="fields" placeholder="Password" name="password" required> <br>
+          <input type="password" class="fields" placeholder="Confirm Password" name="confirm-password" required> <br>
+            <p class="register">Already have an account? <a href="/login/">Login Now</a></p>
+            <input type="submit" id="submit-button" value="Go">
+        </form>
+      </div>
+      </div>
+    </body>
+</html>
