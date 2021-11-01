@@ -2,38 +2,142 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>FLOW</title>
+    <style media="screen">
+      #image-container {
+          margin-top: 5vh;
+          margin-left: 50%;
+          height: 45%;
+          width: 45%;
+          border-radius: 3.5vw;
+      }
+
+      #title {
+          font-size: 8vh;
+          font-family: 'Product Sans Regular', sans-serif;
+          color: white;
+          font-weight: bold;
+          margin-left: 3vw;
+          margin-top: -50vh;
+      }
+
+      #subtitle2 {
+          font-size: 2.5vh;
+          font-family: 'Product Sans Regular', sans-serif;
+          color: white;
+          margin-left: 3vw;
+          margin-right: 53%;
+          max-width: 35vw;
+      }
+
+      #explore-button {
+          margin-left: 2.5vw;
+          margin-top: 4vh;
+          margin-bottom: 4vh;
+          display: block;
+          width: 17vw;
+          height: 7vh;
+          color: white;
+          font-size: 3vh;
+          background-color: black;
+          border-radius: 5vw;
+          border: none;
+          box-shadow: 0px 0px 10px 1px black;
+          font-family: 'Product Sans Regular', sans-serif;
+      }
+
+      #explore-button-2 {
+          margin-left: 2.5vw;
+          margin-bottom: 15px;
+          width: 25vw;
+          height: 7vh;
+          color: white;
+          font-size: 3vh;
+          background-color: black;
+          border-radius: 5vw;
+          border: none;
+          box-shadow: 0px 0px 10px 1px black;
+          font-family: 'Product Sans Regular', sans-serif;
+      }
+
+      #explore-button:hover {
+          box-shadow: 0px 0px 5px 1px black;
+          cursor: pointer;
+      }
+
+      #explore-button-2:hover {
+          box-shadow: 0px 0px 5px 1px black;
+          cursor: pointer;
+      }
+
+      .divider-class-one {
+          height: 20vh;
+      }
+
+      @media (max-width: 1300px) {
+          #image-container {
+              margin-left: 10%;
+              margin-right: 10%;
+              width: 80%;
+              margin-bottom: 0;
+              position: relative;
+              left: 40%;
+              transform: translate(-50%, -0%);
+          }
+
+          #title {
+              text-align: center;
+              margin-top: 50px;
+          }
+
+          .divider-class-one {
+              height: 0px;
+          }
+
+          #subtitle2 {
+              text-align: center;
+              margin-left: 10px;
+              margin-right: 10px;
+          }
+
+          #explore-button {
+              margin-left: 20px;
+              width: 45%;
+              display: inline-block;
+          }
+
+          #explore-button-2 {
+              width: 45%;
+              margin-left: 20px;
+          }
+      }
+
+      .wrapper2 {
+        margin-left: 2%;
+      }
+    </style>
   </head>
   <body>
-    <div class="navbar-left">
-      <ul class="nav">
-        <li class="nav-li"><a href="#">Explore</a></li>
-        <li class="nav-li"><a href="#">About</a></li>
-        <li class="nav-li"><a href="#">Contact Us</a></li>
-      </ul>
+    <div id="header"></div>
+    <img src="{{url_for('static', filename='drone.gif')}}" alt="flying-drone" id="image-container">
+    <div class="wrapper2">
+
+    <div id="title">Drones are the future...</div>
+    <div id="subtitle2">...and our work at <b>FLOW</b> is to help you know what's going on in the drone world! Would you like to...</div>
+    <button id="explore-button">Play the quiz</button>
+    <button id="explore-button-2">or check out the user feedback?</button>
+    <div class="divider-class-one">
+
     </div>
-    <div class="flow-logo">
-      FLOW
-    </div>
-    <div class="navbar-right">
-      <ul class="nav">
-        <li class="nav-li"><a href="#">Login</a></li>
-        <li class="nav-li"><a href="#">Register</a></li>
-      </ul>
-    </div>
-    <div class="drone-gif-div">
-      <img src="{{ url_for('static', filename='drone.gif') }}" alt="A gif of a drone" class="drone-gif">
-    </div>
-    <div class="mobile-menu">
-      <button class="menu" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu">
-      <svg width="100" height="100" viewBox="0 0 100 100">
-        <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
-        <path class="line line2" d="M 20,50 H 80" />
-        <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
-      </svg>
-    </button>
-    </div>
+  </div>
+    <div id="footer"></div>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+    $(function(){
+      $("#header").load("{{ url_for('static', filename='header.html') }}");
+      $("#footer").load("{{ url_for('static', filename='footer.html') }}");
+    });
+
+  </script>
   </body>
 </html>

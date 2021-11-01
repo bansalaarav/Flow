@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <style media="screen">
+            @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+
+            @font-face {
+              font-family: "Product Sans Regular";
+              src: url("ProductSansRegular.ttf");
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            .contact-form-container {
+                width: 100%;
+                height: 75vh;
+                background-color: black;
+                margin-top: 3%;
+            }
+
+            .contact-form-container h1 {
+                font-family: 'Product Sans Regular', monospace;
+                font-size: 7vh;
+                padding-top: 50vh;
+                margin-left: 4vh;
+                margin-right: 40%;
+                color: white;
+            }
+
+            .contact-form-container #subtitle {
+                font-family: 'Product Sans Regular', serif;
+                font-size: 3vh;
+                margin-left: 4vh;
+                margin-right: 47%;
+                color: white;
+            }
+
+            form {
+                margin-left: 53%;
+                background-color: white;
+                border-radius: 5vh;
+                width: 40%;
+                height: 100%;
+                padding: 5vh;
+                margin-top: -70vh;
+                text-align: center;
+            }
+
+            form .field {
+                width: 97%;
+                margin-bottom: 2vh;
+                height: 6vh;
+                border-radius: 1.5vh;
+                font-family: 'Product Sans Regular', monospace;
+                border: 1px solid gray;
+                font-size: 2.5vh;
+                padding-left: 2%;
+            }
+
+            form .submit-button {
+                width: 25%;
+                height: 5vh;
+                font-family: 'Product Sans Regular', monospace;
+                font-size: 3vh;
+                border-radius: 5vh;
+                background-color: #2788E4;
+                color: white;
+                border: none;
+                box-shadow: 0px 0px 2vh 1vh #2788E4;
+            }
+
+            form .submit-button:hover {
+                cursor: pointer;
+            }
+
+            .wrapper {
+              height: 65%;
+              margin-top: 8%;
+            }
+
+            @media (max-width: 1300px) {
+                .wrapper {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-left: 25px;
+                    margin-right: 25px;
+                }
+
+                .contact-form-container {
+                    height: 800px;
+                    text-align: center;
+                    align-items: center;
+                }
+
+                .contact-form-container h1 {
+                    margin-right: 10px;
+                    margin-left: 10px;
+                    padding-top: 30px;
+                    font-size: 50px;
+                }
+
+                .contact-form-container #subtitle {
+                    margin-right: 40px;
+                    padding-top: 10px;
+                    font-size: 20px;
+                    margin-bottom: 40px;
+                }
+
+                .contact-form-container form {
+                    margin-top: 20px;
+                    margin-left: 30px;
+                    width: 80%;
+                    display: table;
+                    margin: 0 auto;
+                }
+
+                form {
+                  height: 65%;
+                  margin-top: -10vh !important;
+                }
+
+                form .submit-button {
+                    width: 150px;
+                    height: 5vh;
+                    font-family: 'Product Sans Regular', monospace;
+                    font-size: 3vh;
+                    border-radius: 5vh;
+                    background-color: #2788E4;
+                    color: white;
+                    border: none;
+                    box-shadow: 0px 0px 2vh 1vh #2788E4;
+                }
+            }
+
+            footer {
+                width: 100%;
+                height: 10vh;
+                margin-top: 2%;
+                background-color: #2788E4;
+                font-family: 'Righteous', serif;
+            }
+
+            footer #centered-text {
+                padding-top: 2.5vh !important;
+                margin-top: -8vh;
+                font-size: 3vh;
+                color: white;
+                text-align: center;
+            }
+
+            footer #left-logo-text {
+                padding-top: 1vh;
+                padding-left: 1%;
+                font-size: 6vh;
+                color: white;
+                text-align: left;
+            }
+
+            footer a {
+                padding-top: 0.5vh;
+                font-size: 2.5vh;
+                margin-top: -4vh;
+                font-family: 'Product Sans Regular', monospace !important;
+                color: black;
+                text-decoration: none;
+                float: right;
+            }
+
+            footer a:hover {text-decoration: underline;}
+
+            @media (max-width: 1100px) {
+                footer {
+                    height: 175px;
+                    text-align: center !important;
+                }
+
+                footer #left-logo-text {
+                    float: none !important;
+                    text-align: center !important;
+                    margin-bottom: 50px;
+                }
+
+                footer #centered-text {
+                    margin-bottom: 10px;
+                }
+
+                footer a {
+                    float: none;
+                    padding: 0;
+                    padding-right: 10px !important;
+                }
+            }
+
+            .wrapper {
+
+            }
+        </style>
+    </head>
+    <body>
+        <div class="contact-form-container">
+            <h1>Drop us a message</h1>
+            <p id="subtitle">Drop us a message for queries, or just to say "How do you do"...</p>
+            <div class="wrapper" id="contact">
+                <form method="post">
+                    <input type="text" class="field" placeholder="Full Name" required> <br>
+                    <input type="email" class="field" placeholder="E-Mail" required> <br>
+                    <textarea rows="8" cols="20" style="height: 20vh; resize: none; padding-top: 1vh; margin-bottom: 3vh;" class="field" placeholder="Message" required></textarea>
+                    <input type="submit" value="High-Five" class="submit-button">
+                </form>
+            </div>
+        </div>
+        <footer>
+          <div id="left-logo-text">FLOW</div>
+          <div id="centered-text"><font family="serif"><></font> with <font color="#EE0000">❤</font> by Team Flow</div>
+          <a href="#" style="padding-right: 14%;">Terms of Use</a>
+          <a href="#" style="padding-right: 2%;">Privacy Policy</a>
+        </footer>
+    </body>
+</html>
