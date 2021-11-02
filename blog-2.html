@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <style media="screen">
+            @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+            @font-face {
+              font-family: "Product Sans Regular";
+              src: url("ProductSansRegular.ttf");
+            }
+
+            @font-face {
+              font-family: "Product Sans Bold";
+              src: url("ProductSansBold.ttf");
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            ::selection {
+                background-color: black;
+                color: white;
+            }
+
+            a #back-arrow {
+                font-size: 6vh;
+                padding-top: 3vh;
+                color: black;
+                tetx-decoration: none;
+            }
+
+            a #back-arrow:hover {
+                color: #2788E4;
+                cursor: pointer;
+            }
+
+            .blog-page-content-container {
+                margin-top: 5vh;
+                margin-left: 10%;
+                margin-right: 10%;
+                background-color: white;
+                margin-bottom: 5vh;
+                padding-left: 4vh;
+                padding-right: 4vh;
+                border: 0.5vh solid black;
+                font-family: 'Product Sans Regular';
+            }
+
+            .blog-page-content-container heading {
+                padding-top: 3vh;
+                display: block;
+                font-size: 6vh;
+                font-weight: 'bold';
+                text-decoration: underline;
+                padding-bottom: 1vh;
+                text-align: center;
+            }
+
+            .blog-page-content-container byline {
+                display: block;
+                font-size: 4vh;
+                font-weight: 'bold';
+                padding-bottom: 0.5vh;
+                text-align: center;
+            }
+
+            .blog-page-content-container date {
+                display: block;
+                font-size: 3vh;
+                font-weight: 'bold';
+                color: gray;
+                padding-bottom: 6vh;
+                text-align: center;
+            }
+
+            .blog-page-content-container blog-content {
+                display: block;
+                font-size: 3.5vh;
+                padding-bottom: 3vh;
+                text-align: justify;
+            }
+
+            .blog-page-content-container blog-content e {
+                color: #2788E4;
+            }
+
+            .blog-page-content-container section {
+                display: block;
+                font-size: 5vh;
+                padding-top: 4vh;
+                padding-bottom: 2.5vh;
+                text-align: center;
+                letter-spacing: 1px;
+            }
+
+            ol {
+                padding-left: 10vh;
+            }
+
+            img {
+                border: 1vh solid #2788E4;
+                width: 40%;
+                height: 35%;
+                margin-left: 30%;
+            }
+
+            .blog-page-content-container .image-caption {
+                font-size: 3vh;
+                color: gray;
+                text-align: center;
+            }
+
+            body {
+                margin: 0;
+                margin-top: 5vh;
+                padding: 0;
+            }
+
+            nav {
+                background-color: #2D89E1;
+                width: 100%;
+                height: 8vh;
+            }
+
+            #logo {float: right;}
+
+            #logo a {
+                padding-right: 2vw;
+                font-size: 6vh;
+                font-family: 'Righteous', serif;
+                text-decoration: none;
+                color: white;
+            }
+
+            nav ul {
+                list-style: none;
+                font-family: 'Product Sans Regular', serif;
+                font-size: 4vh;
+                padding-left: 3vh;
+                padding-top: 1.5vh;
+                padding-right: 2vw;
+                text-align: left;
+            }
+
+            nav ul li {
+                display: inline-block;
+                padding-right: 4vw;
+            }
+
+            nav ul #last-child {
+                padding-left: 1vh;
+            }
+
+            nav ul li a {
+                color: white;
+                text-decoration: none;
+            }
+
+            nav ul li a:hover {
+                text-decoration: overline;
+            }
+
+            .open {
+                text-align: right;
+                padding-right: 10px;
+                color: white;
+                font-size: 5vh;
+                padding-top: 8px;
+                display: none;
+            }
+
+            .close {
+                text-align: right;
+                padding-right: 10px;
+                color: white;
+                font-size: 5vh;
+                padding-top: 10px;
+                display: none;
+            }
+
+            .full-menu {
+                background: #2D89E1;
+                background-size: cover;
+                height: 0vh;
+                width: 100%;
+                left: 0;
+                top: 0;
+                position: fixed;
+                z-index: 1;
+                overflow-x: hidden; /*disable horizontal scroll*/
+                transition: height 0.5s;
+            }
+
+            .full-menu ul {
+                list-style: none;
+                vertical-align: middle;
+                text-align: center;
+                font-family: 'Product Sans Regular', serif;
+                font-size: 5vh;
+                margin-top: 25vh;
+            }
+
+            .full-menu ul li {
+                display: block;
+                padding-bottom: 50px;
+            }
+
+            .full-menu ul li #last-child {
+                margin-bottom: none;
+            }
+
+            .full-menu ul li a {
+                text-decoration: none;
+                color: white;
+            }
+
+            .full-menu ul li a:hover {
+                text-decoration: overline;
+            }
+
+            @media (max-width: 955px) {
+                nav ul {
+                    display: none;
+                }
+
+                nav #logo {
+                    float: left;
+                    padding-left: 3vh;
+                }
+
+                .open {
+                    display: block;
+                }
+            }
+        </style>
+        <meta charset="utf-8">
+        <title>Drone Technology - How do Drones work? | FLOW Blog</title>
+    </head>
+    <body bgcolor="#2788E4">
+        <nav>
+            <div id="logo"><a href="#">FLOW</a></div>
+            <ul>
+                <li  id="first-child"><a href="#">Home</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Register</a></li>
+            </ul>
+            <div class="open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </nav>
+        <div class="full-menu">
+            <div class="close">
+                <i class="fa fa-times"></i>
+            </div>
+            <ul>
+                <li><a href="#" class="full-menu-link-item">Home</a></li>
+                <li><a href="#" class="full-menu-link-item">Login</a></li>
+                <li id="last-child" class="full-menu-link-item"><a href="#">Register</a></li>
+            </ul>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            var windowsize = $(window).width();
+
+            $(window).resize(function() {
+                var windowsize = $(window).width();
+                if (windowsize >= 955) {
+                    $(".full-menu").css("height", "0vh");
+                    $(".open").css("display", "none");
+                    $(".close").css("display", "none");
+                } else {
+                    $(".open").css("display", "block");
+                    $(".full-menu").css("height", "0vh");
+                    $(".close").css("display", "block");
+                }
+            });
+
+            $(document).ready(function() {
+                $(".open").click(function() {
+                    $(".full-menu").css("height", "100vh");
+                    $(".close").css("display", "block");
+                })
+                $(".close").click(function() {
+                    $(".full-menu").css("height", "0vh");
+                    $(".close").css("display", "none");
+                })
+                $(".full-menu-link-item").click(function() {
+                    $(".full-menu").css("height", "0vh");
+                })
+            })
+        </script>
+        <div class="blog-page-content-container">
+            <a href="blog-page.html"><i id="back-arrow" class="fa fa-arrow-circle-left"></i></a>
+            <heading>Drone Technology - How do Drones work?</heading>
+            <byline>Original by Shreyas Deo, Edited by Team FLOW</byline>
+            <date>1 November 2021</date>
+            <blog-content>
+                <p>Hopefully, by now, you have understood the concept of Drones. As we have learnt, they are miraculous machines serving us in all sorts of fields including military surveillance, photography, entertainment, and what not! But to perform their services well, drones need more than just a simple remote and batteries.</p>
+                <br>
+                <img src="drone-illustration.png" alt="A typical drone">
+                <div class="image-caption">Breakdown of a typical commercial drone</div>
+
+                <section>Types of drones</section>
+                <p>There are primarily <e>two types of drones</e> - rotor drones and fixed-wing drones.
+                <ol type="i">
+                <li><e>Rotor Drones</e> - As the name suggests, <e>rotor drones are the ones that work by virtue of rotating rotors</e> (circular wings).</li>
+                <li><e>Fixed-wing Drones</e> - These drones, on the other hand, <e>have fixed wings, making their structure somewhat similar to that of an aeroplane</e>.</li>
+                </ol>
+                Both rotor and fixed-wing drones have certain similarities, specifically in the parts used to make both. Let's discuss them one after the other.
+                </p>
+
+                <section>Connectivity</section>
+                <p>Connectivity is one of the most important characteristics of any drone. It is the system using which a drone is able to connect to its controller (remote), or for autonomous models, the system that guides it through its flight. These days, many drones use the concept of Wi-Fi to achieve this task.</p>
+
+                <section>Flight Mechanics</section>
+                <p>Let's discuss this topic in parts. Let's start with Fixed-wing Drones this time:
+                <ol type="i">
+                    <li>These drones have similar flight mechanics as those of civilian aircrafts.</li>
+                    <li>They do not need to drain energy from their batteries as much as rotor drones, since fixed-wing drones tend to stay aloft in air even when not using external boosters, because of their wing design.</li>
+                    <li>Because of their sleek, concealing design, they are most preferrable as military aircraft.</li>
+                </ol>
+                Now for Rotor Drones:
+                <ol type="i">
+                    <li>These drones are similar to commercial helicpoters.</li>
+                    <li>Their main feature are the many rotors (even six or more) that they possess in place of curved wings like those of Fixed-wing models. This feature of them helps them to have a better grip on the ground when landing, as compared to Fixed-wing Drones.</li>
+                    <li>However, the continuous movement of their rotors equates to the continuous drainage of battery from their stock, and they are not preferable for long-distance cruising.</li>
+                </ol>
+                </p>
+                <br>
+                <img src="flight-mechanics.jpg.png" alt="Flight Mechanism" style="margin-left: 10%; width: 80%; height: 60vh;">
+                <div class="image-caption">A lot of Physics going on behind the scenes</div>
+
+                <section>Altimeters and Accelerometers</section>
+                <p>While altimeters are devices that transmit altitudinal information to the controller, accelerometers provide it (the controller) with information related to the speed of the Drone. This data is helpful for the controller, as well as for the Drone's innate controllig mechanism, to help soften its landings, correct orientation, etcetera.</p>
+
+                <section>Cameras</section>
+                <p>Like we mentioned earlier, Drones are some of the greatest inventions man has to his credit. These machines even have the capability to maintain thrust, orientation, etc. all by their software, so users just have to enjoy flying them. To improve user experience, many companies have started adding cameras to drones, so that users can see the path and guide their Drone accordingly. These cameras are a boon when using drones for rescue and military operations. With the advent of 5G technology, the situation is just expected to get better and better for drone lovers...</p>
+                <br>
+                <img src="drone-blog-2.jpg" alt="A white Drone">
+                <div class="image-caption">Up, Up and Gone: The magic of Drones</div>
+            </blog-content>
+        </div>
+    </body>
+</html>
