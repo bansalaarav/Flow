@@ -5,15 +5,12 @@
         <style media="screen">
             @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
-            @font-face {
-              font-family: "Product Sans Regular";
-              src: url("ProductSansRegular.ttf");
-            }
 
             @font-face {
-              font-family: "Product Sans Bold";
-              src: url("ProductSansBold.ttf");
+              font-family: "Product Sans Regular";
+              src: url("{{url_for('static', filename='ProductSansRegular.ttf')}}");
             }
+
 
             * {
                 margin: 0;
