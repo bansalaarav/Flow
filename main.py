@@ -33,6 +33,20 @@ def privacy_policy():
     return render_template("privacy-policy.html")
 
 
+@app.route("/blog/")
+def blog():
+    return render_template("blog-page.html")
+
+@app.route("/blog/<variable>/")
+def blog_pages(variable):
+    if variable == "history-of-drone-tech":
+        return render_template("blogs/blog-1.html")
+    elif variable == "how-do-drones-work":
+        return render_template("blogs/blog-2.html")
+
+    return redirect(url_for("blog"))
+
+
 @app.route("/login/", methods=["GET", "POST"])
 def login():
     if request.method == "POST":

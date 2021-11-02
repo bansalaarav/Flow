@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
-        <style>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#navbar-section').load('header.html');
+            });
+        </script>
+        <style media="screen">
             @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
             @font-face {
@@ -11,11 +17,85 @@
               src: url("ProductSansRegular.ttf");
             }
 
+            @font-face {
+              font-family: "Product Sans Bold";
+              src: url("ProductSansBold.ttf");
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            h1 {
+                color: white;
+                font-family: 'Product Sans Regular', monospace;
+                font-size: 10vh;
+                padding: 3vh;
+                margin-left: 3vw;
+                margin-bottom: 1.5vh;
+            }
+
+            .blog-content {
+                margin-left: 5%;
+                margin-right: 5%;
+                background-color: white;
+                border: 0.5vh solid black;
+                padding: 3vh;
+                margin-bottom: 4vh;
+                text-align: left;
+            }
+
+            .blog-content date {
+                color: gray;
+                font-size: 3.4vh;
+                font-family: 'Product Sans Regular', serif;
+                padding-bottom: 2vh;
+                display: block;
+            }
+
+            .blog-content heading a {
+                font-size: 5vh;
+                font-family: 'Product Sans Regular', serif;
+                padding-bottom: 1vh;
+                font-weight: 'bold';
+                color: black;
+                text-decoration: none;
+                display: block;
+            }
+
+            .blog-content heading a:hover {
+                text-decoration: underline;
+            }
+
+            .blog-content content {
+                font-size: 3.3vh;
+                font-family: 'Product Sans Regular', serif;
+                color: black;
+                display: block;
+            }
+
+            ::selection {
+                background-color: black;
+                color: white;
+            }
+
+            @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+            @font-face {
+              font-family: "Product Sans Regular";
+              src: url("./ProductSansRegular.ttf");
+            }
+
+            @font-face {
+              font-family: "Product Sans Bold";
+              src: url("./ProductSansBold.ttf");
+            }
+
             body {
                 margin: 0;
                 margin-top: 10vh;
                 padding: 0;
-                background-color: #2D89E1;
             }
 
             nav {
@@ -134,16 +214,16 @@
                 }
             }
         </style>
+        <meta charset="utf-8">
+        <title>FLOW Blog</title>
     </head>
-    <body>
+    <body bgcolor="#2788E4">
         <nav>
-            <div id="logo"><a href="#">FLOW</a></div>
+            <div id="logo"><a href="/">FLOW</a></div>
             <ul>
-                <li><a href="/blog/">Blog</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#contact">Contact Us</a></li>
+                <li  id="first-child"><a href="/">Home</a></li>
                 <li><a href="/login/">Login</a></li>
-                <li id="last-child"><a href="/register/">Register</a></li>
+                <li><a href="/register/">Register</a></li>
             </ul>
             <div class="open">
                 <i class="fa fa-bars"></i>
@@ -154,9 +234,7 @@
                 <i class="fa fa-times"></i>
             </div>
             <ul>
-                <li><a href="/blog/" class="full-menu-link-item">Blog</a></li>
-                <li><a href="#" class="full-menu-link-item">About</a></li>
-                <li><a href="#contact" class="full-menu-link-item">Contact Us</a></li>
+                <li><a href="/" class="full-menu-link-item">Home</a></li>
                 <li><a href="/login/" class="full-menu-link-item">Login</a></li>
                 <li id="last-child" class="full-menu-link-item"><a href="/register/">Register</a></li>
             </ul>
@@ -192,5 +270,16 @@
                 })
             })
         </script>
+        <h1>Blog</h1>
+        <div class="blog-content">
+            <date>1st November 2021</date>
+            <heading><a href="/blog/history-of-drone-tech/">Introduction to Drone Technology - The History</a></heading>
+            <content>A drone, also known as an unmanned aerial vehicle (UAV), or unmanned aircraft system (UAS), is any flying machine capable of autonomous flight or controlling remotely. They are such sophisticated little (but sometime huge) things that they have found applications in the military, the industry, as well as...</content>
+        </div>
+        <div class="blog-content">
+            <date>1st November 2021</date>
+            <heading><a href="/blog/how-do-drones-work/">Drone Technology - How do Drones work?</a></heading>
+            <content>Hopefully, by now, you have understood the concept of Drones. As we have learnt, they are miraculous machines serving us in all sorts of fields including military surveillance, photography, entertainment, and what not! But to perform their services well, drones need more than just a simple remote and batteries...</content>
+        </div>
     </body>
 </html>
