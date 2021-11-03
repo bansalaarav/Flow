@@ -160,28 +160,6 @@
         font-family: "Product Sans Bold";
         src: url("/static/ProductSansBold.ttf");
       }
-
-      .explore-level {
-          background-color: black;
-          padding: 1.5vh 3vh 3vh 3vh;
-          height: 80vh;
-      }
-
-      .explore-level .explore-title {
-          font-family: 'Product Sans Bold', serif;
-          color: white;
-          font-size: 10vh;
-      }
-
-      .explore-level .content-background-container {
-          background-color: white;
-          margin-top: 2.5vh;
-          border-radius: 5vh;
-          padding: 5vh;
-          margin-left: 10vh;
-          margin-right: 10vh;
-          height: 50vh;
-      }
     </style>
   </head>
   <body>
@@ -198,28 +176,24 @@
     <div id="header"></div>
     <img src="{{url_for('static', filename='drone.gif')}}" alt="flying-drone" id="image-container">
     <div class="wrapper2">
-
-    <div id="title">Drones are the future...</div>
-    <br>
-    <div id="subtitle2">...and our work at <b>FLOW</b> is to help you know what's going on in the drone world! Get started by clicking on the button below:</div>
-    <br>
-    <button id="explore-button">Explore</button>
-    <div class="divider-class-one">
-
+        <div id="title">Drones are the future...</div>
+        <br>
+        <div id="subtitle2">...and our work at <b>FLOW</b> is to help you know what's going on in the drone world! Get started by clicking on the button below:</div>
+        <br>
+        <button id="explore-button">Explore</button>
+        <div class="divider-class-one">
+        </div>
     </div>
-  </div>
-  <div class="explore-level">
-      <div class="explore-title">Explore</div>
-      <div class="content-background-container">
 
-      </div>
-  </div>
+    <div id="explore-level"></div>
+
     <div id="footer"></div>
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script>
     $(function(){
       $("#header").load("{{ url_for('static', filename='header.html') }}");
       $("#footer").load("{{ url_for('static', filename='footer.html') }}");
+      $("#explore-level").load("{{ url_for('static', filename='explore-page.html') }}");
     });
 
     setTimeout(function() {
