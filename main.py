@@ -43,6 +43,8 @@ def blog_pages(variable):
         return render_template("blogs/blog-1.html")
     elif variable == "how-do-drones-work":
         return render_template("blogs/blog-2.html")
+    elif variable == "drones-and-covid-19":
+        return render_template("blogs/blog-3.html")
 
     return redirect(url_for("blog"))
 

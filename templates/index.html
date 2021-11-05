@@ -50,7 +50,7 @@
           color: white;
           font-size: 3vh;
           background-color: black;
-          border-radius: 5vw;
+          border-radius: 7vw;
           border: none;
           box-shadow: 0px 0px 10px 1px black;
           font-family: 'Product Sans Regular', sans-serif;
@@ -131,12 +131,10 @@
         margin-left: 2%;
       }
 
-      h3 {
-        text-align: center;
-      }
 
       .msg {
         display:inline-block;
+        text-align: center;
         position: relative;
         left: 50%;
         transform: translateX(-50%);
@@ -160,6 +158,11 @@
         font-family: "Product Sans Bold";
         src: url("/static/ProductSansBold.ttf");
       }
+
+      .__explore {
+        text-decoration: none;
+        color: white;
+      }
     </style>
   </head>
   <body>
@@ -180,12 +183,13 @@
         <br>
         <div id="subtitle2">...and our work at <b>FLOW</b> is to help you know what's going on in the drone world! Get started by clicking on the button below:</div>
         <br>
-        <button id="explore-button">Explore</button>
+        <a href="#explore" class="__explore"><button id="explore-button">Explore</button></a>
         <div class="divider-class-one">
         </div>
     </div>
 
     <div id="explore-level"></div>
+    <div id="user-feedback-level"></div>
 
     <div id="footer"></div>
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -194,6 +198,7 @@
       $("#header").load("{{ url_for('static', filename='header.html') }}");
       $("#footer").load("{{ url_for('static', filename='footer.html') }}");
       $("#explore-level").load("{{ url_for('static', filename='explore-page.html') }}");
+      $("#user-feedback-level").load("{{ url_for('static', filename='user-feedback.html') }}");
     });
 
     setTimeout(function() {

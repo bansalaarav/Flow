@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+      <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <style media="screen">
+            @import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
+            @font-face {
+              font-family: "Product Sans Regular";
+              src: url("/static/ProductSansRegular.ttf");
+            }
+
+            @font-face {
+              font-family: "Product Sans Bold";
+              src: url("/static/ProductSansBold.ttf");
+            }
+
+            .main-container {
+                background-color: #2788E4;
+                width: 100%;
+                height: 80vh;
+                box-sizing: border-box;
+                padding: 3vh;
+            }
+
+            .main-container h1 {
+              font-family: 'Product Sans Bold', monospace;
+              font-size: 10vh;
+              color: white;
+              margin-top: 3vh;
+              margin-bottom: 5vh;
+            }
+
+            .main-container h3 {
+                font-family: 'Product Sans Regular', sans-serif;
+                font-size: 3vh;
+                font-weight: 100;
+                color: white;
+                padding-bottom: 2vh;
+                margin-top: -6vh;
+            }
+
+            .main-container .flex-container {
+                display: flex;
+                height: 70%;
+                width: 100%;
+            }
+
+            .main-container .flex-container .big-feedback {
+                height: 98%;
+                width: 60%;
+                border-radius: 5vh;
+                background-color: white;
+            }
+
+            .main-container .flex-container .big-feedback #user-image {
+                height: 100%;
+                width: 30%;
+                border-radius: 5vh 0 0 5vh;
+                background-image: url("/static/user.jpeg");
+                background-size: cover;
+                background-position: center;
+            }
+
+            .main-container .flex-container .big-feedback .user-review {
+                text-align: center;
+                color: black;
+                margin-left: 30%;
+                margin-top: -40%;
+                font-family: 'Product Sans Bold', serif;
+                font-size: 3.4vh;
+                padding: 3vh;
+            }
+
+            .main-container .flex-container .big-feedback .user-review quotation {
+                display: block;
+                font-size: 7vh;
+                font-family: 'Secular One', fantasy;
+            }
+
+            .main-container .flex-container .big-feedback .user-review whoisthis {
+                display: block;
+                font-size: 5vh;
+                font-family: 'Product Sans Bold', serif;
+                color: gray;
+            }
+
+            .main-container .flex-container .smaller-feedback {
+                height: 98%;
+                width: 40%;
+                margin-left: 5vh;
+                border-radius: 5vh;
+                background-color: white;
+            }
+
+            .main-container .flex-container .smaller-feedback .user-review {
+                text-align: center;
+                color: black;
+                font-family: 'Product Sans Bold', serif;
+                font-size: 3.4vh;
+                padding: 3vh;
+                margin-top: 10%;
+            }
+
+            .main-container .flex-container .smaller-feedback .user-review quotation {
+                display: block;
+                font-size: 7vh;
+                font-family: 'Secular One', fantasy;
+            }
+
+            .main-container .flex-container .smaller-feedback .user-review whoisthis {
+                display: block;
+                font-size: 5vh;
+                font-family: 'Product Sans Bold', serif;
+                color: gray;
+            }
+
+            @media (max-width: 1275px) {
+                .main-container {
+                    height: 130vw;
+                }
+
+                .main-container .flex-container {
+                    flex-direction: column;
+                    align-items: center;
+                    align-content: space-around;
+                }
+
+                .main-container .flex-container .big-feedback {
+                    width: 90%;
+                    height: 40vw !important;
+                    border-radius: 5vh;
+                    background-color: white;
+                }
+
+                .main-container .flex-container .big-feedback .user-review {
+                    box-sizing: border-box;
+                    text-align: center;
+                    color: black;
+                    margin-left: 30%;
+                    font-family: 'Product Sans Bold', serif;
+                    font-size: 3.4vh;
+                    padding: 3vh;
+                }
+
+                .main-container .flex-container .smaller-feedback {
+                    width: 70%;
+                    height: 40vw;
+                    border-radius: 5vh;
+                    background-color: white;
+                    position: absolute;
+                    margin-top: 45vw;
+                }
+
+                .main-container .flex-container .big-feedback .user-review {
+                    display: inline-block;
+                }
+
+                .main-container .flex-container .big-feedback .user-review quotation {
+                    font-size: 5vw !important;
+                    padding-top: none !important;
+                }
+
+                .main-container .flex-container .user-review {
+                    font-size: 2.5vw !important;
+                }
+
+                .main-container .flex-container .user-review quotation {
+                    font-size: 5vw !important;
+                }
+
+                .main-container .flex-container whoisthis {
+                    font-size: 3vw !important;
+                }
+
+                .main-container .flex-container whoisthis {
+                    font-size: 3vw !important;
+                }
+
+                .main-container .flex-container #special-1 {
+                    font-size: 1.8vw !important;
+                }
+
+                .main-container .flex-container #special-2 {
+                    font-size: 1.8vw !important;
+                }
+
+                .main-container h1 {
+                    font-size: 8vw;
+                }
+
+                .main-container h3 {
+                    font-size: 3vw !important;
+                    padding-top: 4vh !important;
+                }
+            }
+        </style>
+    </head>
+    <body style="margin: 0; padding: 0;">
+        <div class="main-container">
+            <h1>User Feedback</h1>
+            <h3>Don't just take our word for it...</h3>
+            <div class="flex-container">
+                <div class="big-feedback">
+                    <div id="user-image"></div>
+                    <div class="user-review">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation...I forgot the rest...
+                        <whoisthis>Someone Someone</whoisthis>
+                        <whoisthis style="font-family: 'Product Sans Regular', serif; font-size: 3vh;" id="special-1">Someone's Random Workplace</whoisthis>
+                    </div>
+                </div>
+                <div class="smaller-feedback">
+                    <div class="user-review">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation...I forgot the rest...
+                        <whoisthis>Someone Someone</whoisthis>
+                        <whoisthis style="font-family: 'Product Sans Regular', serif; font-size: 3vh;" id="special-2">Someone's Random Workplace</whoisthis>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
