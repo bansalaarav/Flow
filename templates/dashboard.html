@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <title>Dashboard</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+      @font-face {
+        font-family: "Product Sans Regular";
+        src: url("/static/ProductSansRegular.ttf");
+      }
+
+      @font-face {
+        font-family: "Product Sans Bold";
+        src: url("/static/ProductSansBold.ttf");
+      }
+
+      body {
+        margin-top: 10vh;
+        background-color: black;
+        font-family: "Product Sans Regular", sans-serif;
+      }
+
+      .msg {
+        display: inline-block;
+        text-align: center;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .wrap-msg {
+        background-color: white;
+        display: block;
+        margin-top: -10vh;
+        margin-bottom: 2%;
+      }
+
+      nav {
+        width: 100%;
+        height: 60px;
+      }
+
+      #logo {
+        float: left;
+      }
+
+      #logo a {
+        padding-left: 5vw;
+        font-size: 5vh;
+        font-family: "Righteous", serif;
+        text-decoration: none;
+        color: white;
+      }
+
+      nav ul {
+        list-style: none;
+        font-family: "Product Sans Regular", serif;
+        font-size: 2.5vh;
+        padding-top: 1.5vh;
+        padding-right: 5vw;
+        text-align: right;
+      }
+
+      nav ul li {
+        display: inline-block;
+        padding-right: 4vw;
+      }
+
+      nav ul #last-child {
+        padding-right: 5px;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+      }
+
+      nav ul li a:hover {
+        color: #2d89e1;
+      }
+
+      .open {
+        text-align: right;
+        padding-right: 10px;
+        color: white;
+        font-size: 40px;
+        padding-top: 8px;
+        display: none;
+      }
+
+      .close {
+        text-align: right;
+        padding-right: 10px;
+        color: white;
+        font-size: 40px;
+        padding-top: 10px;
+        display: none;
+      }
+
+      .full-menu {
+        background: black;
+        background-size: cover;
+        height: 0vh;
+        width: 100%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        position: fixed;
+        z-index: 1;
+        overflow-x: hidden; /*disable horizontal scroll*/
+        transition: height 0.5s;
+      }
+
+      .full-menu ul {
+        list-style: none;
+        vertical-align: middle;
+        text-align: center;
+        font-family: "Product Sans Regular", serif;
+        font-size: 5vh;
+        margin-top: 30vh;
+      }
+
+      .full-menu ul li {
+        display: block;
+        padding-bottom: 50px;
+      }
+
+      .full-menu ul li #last-child {
+        margin-bottom: none;
+      }
+
+      .full-menu ul li a {
+        text-decoration: none;
+        color: white;
+      }
+
+      .full-menu ul li a:hover {
+        color: #2d89e1;
+      }
+
+      @media (max-width: 1100px) {
+        nav ul {
+          display: none;
+        }
+
+        nav #logo {
+          text-align: center;
+        }
+
+        .open {
+          display: block;
+        }
+      }
+
+      .dash-title {
+          text-align: center;
+          color: white;
+          margin-top: 2%;
+          font-size: 7vh;
+      }
+
+      .quiz-stats-container {
+          background-color: #2d89e1;
+          width: 70%;
+          height: 15%;
+          position: absolute;
+          left: 50%;
+          top: 40%;
+          transform: translate(-50%, -50%);
+          border-radius: 5vh;
+          box-shadow: 0px 0px 40px 0px #2d89e1;
+      }
+
+      .quiz-stats-title {
+          color: white;
+          font-size: 7vh;
+          margin: 0;
+          position: relative;
+          left: 5%;
+          top: 25%;
+      }
+
+      .fa-users {
+          font-size: 8vh;
+          position: relative;
+          left: 50%;
+          top: -28%;
+      }
+      
+      .fa-clock-o {
+        font-size: 8vh;
+          position: relative;
+          left: 69%;
+          top: -28%;
+      }
+
+      .num-of-ppl-title {
+          position: absolute;
+          left: 60%;
+          top: 18%;
+          color: rgb(0, 0, 0, 0.5);
+      }
+
+      .num-of-ppl {
+        position: absolute;
+          left: 60%;
+          top: 22%;
+          color: white;
+          font-size: 5vh;
+      }
+
+      .avg-time-title {
+          position: absolute;
+          left: 85%;
+          top: 18%;
+          color: rgb(0, 0, 0, 0.5);
+      }
+
+      .avg-time {
+        position: absolute;
+          left: 85%;
+          top: 22%;
+          color: white;
+          font-size: 5vh;
+      }
+
+      .user-stats-1 {
+        background-color: white;
+          width: 20%;
+          height: 30%;
+          position: absolute;
+          left: 25%;
+          top: 70%;
+          transform: translate(-50%, -50%);
+          border-radius: 5vh;
+      }
+
+      .user-stats-2 {
+        background-color: white;
+          width: 20%;
+          height: 30%;
+          position: absolute;
+          left: 75%;
+          top: 70%;
+          transform: translate(-50%, -50%);
+          border-radius: 5vh;
+      }
+
+      .score {
+        color: black;
+        font-size: 10vh;
+        margin: 0;
+        position: absolute;
+        left: 10%;
+        top: 15%;
+      }
+
+      .best-time {
+        color: black;
+        font-size: 10vh;
+        margin: 0;
+        position: absolute;
+        left: 10%;
+        top: 15%;
+      }
+
+
+      .score-sub {
+        color: rgb(0, 0, 0, 0.5);
+        position: absolute;
+        left: 10%;
+        top: 50%;
+        font-size: 3vh;
+        max-width: 15vw;
+      }
+      
+      .best-time-sub {
+        color: rgb(0, 0, 0, 0.5);
+        position: absolute;
+        left: 10%;
+        top: 50%;
+        font-size: 3vh;
+        max-width: 15vw;
+      }
+
+
+      .play-button {
+        border: 0;
+        background: transparent;
+        box-sizing: border-box;
+        width: 0;
+        height: 74px;
+
+        border-color: transparent transparent transparent #ffffff;
+        transition: 100ms all ease;
+        
+        border-style: solid;
+        border-width: 37px 0 37px 60px;
+        position: relative;
+        left: 55%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .play-button-wrapper {
+        position: absolute;
+        left: 50%;
+        top: 70%;
+        transform: translate(-50%, -50%);
+        width: 150px;
+        height: 150px;
+        background-color: #2d89e1;
+        border-radius: 50%;
+    }
+
+    @media (max-width: 1100px) {
+        
+    }
+    
+
+    </style>
+  </head>
+  <body>
+    {% with messages = get_flashed_messages() %} 
+    {% if messages %} 
+    {% for message in messages %}
+        <div class="wrap-msg">
+        <h3 class="msg">{{ message }}</h3>
+        </div>
+    {% endfor %} {% endif %} {% endwith %}
+
+    <nav>
+      <div id="logo"><a href="/">FLOW</a></div>
+      <ul>
+        <li><a href="/quizzes/">Quizzes</a></li>
+        <li id="last-child"><a href="/logout/">Logout</a></li>
+      </ul>
+      <div class="open">
+        <i class="fa fa-bars"></i>
+      </div>
+    </nav>
+    <div class="full-menu">
+      <div class="close">
+            
+      </div>
+      <ul>
+        <li><a href="/quizzes/" class="full-menu-link-item">Quizzes</a></li>
+        <li id="last-child" class="full-menu-link-item">
+          <a href="/logout/">Logout</a>
+        </li>
+      </ul>
+    </div>
+
+    <h1 class="dash-title">Dashboard</h1>
+    <div class="quiz-stats-container">
+        <h3 class="quiz-stats-title">Quiz Stats</h3>
+        <i class="fa fa-users"></i>
+        <h5 class="num-of-ppl-title">Number of participants</h5>
+        <h1 class="num-of-ppl">50</h3>
+        <i class="fa fa-clock-o"></i>
+        <h5 class="avg-time-title">Average Time</h5>
+        <h1 class="avg-time">20s</h3>
+    </div>
+    <div class="user-stats-1">
+        <h1 class="score">8/10</h1>
+        <h3 class="score-sub">is your best score till date</h3>
+    </div>
+    <div class="user-stats-2">
+        <h1 class="best-time">25s</h1>
+        <h3 class="best-time-sub">is the fastest you have completed a quiz</h3>
+    </div>
+    <a class="play-button-wrapper" href="/quizzes/">
+        <div class="play-button"></div>
+    </a>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      var windowsize = $(window).width();
+
+      $(window).resize(function () {
+        var windowsize = $(window).width();
+        if (windowsize >= 955) {
+          $(".full-menu").css("height", "0vh");
+          $(".open").css("display", "none");
+          $(".close").css("display", "none");
+        } else {
+          $(".open").css("display", "block");
+          $(".full-menu").css("height", "0vh");
+          $(".close").css("display", "block");
+        }
+      });
+
+      $(document).ready(function () {
+        $(".open").click(function () {
+          $(".full-menu").css("height", "100vh");
+          $(".close").css("display", "block");
+        });
+        $(".close").click(function () {
+          $(".full-menu").css("height", "0vh");
+          $(".close").css("display", "none");
+        });
+        $(".full-menu-link-item").click(function () {
+          $(".full-menu").css("height", "0vh");
+        });
+      });
+
+      setTimeout(function () {
+        $(".wrap-msg").fadeOut("fast");
+      }, 3000);
+    </script>
+  </body>
+</html>

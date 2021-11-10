@@ -22,7 +22,10 @@ class User(db.Model):
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    if session.get("logged-in"):
+        return redirect(url_for("dashboard"))
+    else:
+        return render_template("index.html")
 
 @app.route("/terms-of-use/")
 def terms_of_use():
@@ -36,6 +39,20 @@ def privacy_policy():
 @app.route("/blog/")
 def blog():
     return render_template("blog-page.html")
+
+@app.route("/dashboard/")
+def dashboard():
+    if session.get("logged-in"):
+        return render_template("dashboard.html")
+    else:
+        return redirect(url_for("login"))
+
+@app.route("/quizzes/")
+def quizzes():
+    if session.get("logged-in"):
+        return render_template("quizzes.html")
+    else:
+        return redirect(url_for("login"))
 
 @app.route("/blog/<variable>/")
 def blog_pages(variable):
@@ -67,7 +84,7 @@ def login():
                 session['first_name'] = user.first_name
                 flash('Login successful!')
                 print("login successful")
-                return redirect(url_for("index"))
+                return redirect(url_for("dashboard"))
             else:
                 flash('Incorrect password!')
                 return redirect(url_for("login"))
@@ -76,13 +93,15 @@ def login():
         return redirect(url_for("login"))
     if session.get("logged-in"):
         print("logged in")
-        return redirect(url_for("index"))
-    return render_template("login.html")
+        return redirect(url_for("dashboard"))
+    else:
+        return render_template("login.html")
 
 
 @app.route('/logout/')
 def logout():
     session["logged-in"] = False
+    flash("Logged out successfully!")
     return redirect(url_for('index'))
 
 
@@ -112,7 +131,7 @@ def register():
 
                 session['first_name'] = new_user.first_name
                 print("reg success")
-                return redirect(url_for("index"))
+                return redirect(url_for("dashboard"))
             else:
                 flash("Passwords do not match!")
                 return redirect(url_for("register"))
@@ -121,7 +140,7 @@ def register():
             return redirect(url_for("register"))
     if session.get("logged-in"):
         print("reg logged in")
-        return redirect(url_for("index"))
+        return redirect(url_for("dashboard"))
 
     return render_template("register.html")
 
