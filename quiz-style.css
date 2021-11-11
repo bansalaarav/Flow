@@ -1,0 +1,232 @@
+@font-face {
+  font-family: "Product Sans Regular";
+  src: url("./ProductSansRegular.ttf");
+}
+
+@font-face {
+  font-family: "Product Sans Bold";
+  src: url("./ProductSansBold.ttf");
+}
+
+* {margin: 0; padding: 0}
+
+::selection {
+    background-color: black;
+    color: white;
+}
+
+.main-container-flexbox {
+    background-color: #2D89E1;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-container-flexbox button {
+    width: 15%;
+    height: 7vh;
+    color: white;
+    background-color: #2D89E1;
+    border: 0.5vh solid white;
+    font-family: 'Product Sans Bold', monospace;
+    font-size: 4vh;
+    border-radius: 0.5vh;
+}
+
+.main-container-flexbox button:hover {
+    color: #2D89E1;
+    background-color: white;
+    cursor: pointer;
+}
+
+.main-container-flexbox .rule-box {
+    background-color: white;
+    width: 50%;
+    padding: 2vh;
+    box-shadow: 0 0.2vh 1vh 0 black;
+    color: black;
+    font-family:'Product Sans Regular', sans-serif;
+    font-size: 3vh;
+    border-radius: 0.5vh;
+    display: none;
+}
+
+.main-container-flexbox .rule-box box-title {
+    color: black;
+    font-family: 'Product Sans Bold', cursive;
+    font-size: 4vh;
+    width: 100%;
+    border-bottom: 0.2vh solid lightgray;
+    padding-bottom: 1vh;
+    display: flex;
+}
+
+.main-container-flexbox .rule-box ol {
+    padding-top: 3vh;
+    list-style: none;
+    padding-bottom: 3vh;
+}
+
+.main-container-flexbox .rule-box ol e {
+    color: #2D89E1;
+}
+
+.main-container-flexbox .rule-box .button-holder {
+    display: flex;
+    border-top: 0.2vh solid lightgray;
+    justify-content: flex-end;
+}
+
+.main-container-flexbox .rule-box button {
+    margin-top: 2vh;
+    width: 25%;
+    font-size: 3vh;
+    height: 6vh;
+}
+
+.main-container-flexbox .rule-box button:hover {
+    box-shadow: 0 1vh 1vh 0 lightgray;
+}
+
+.main-container-flexbox .rule-box #rb-button1 {
+    border: 0.5vh solid #2D89E1;
+    background-color: transparent;
+    color: #2D89E1;
+}
+
+.main-container-flexbox .rule-box #rb-button2 {
+    border: 0.5vh solid #2D89E1;
+    background-color: #2D89E1;
+    color: white;
+}
+
+.time-left-counter {
+    margin-right: none;
+    align-self: stretch;
+    border: 0.5vh solid white;
+    color: white;
+    font-family: 'Product Sans Bold';
+    font-size: 3vh;
+    padding: 0.5vh;
+    margin: 1vh;
+    text-align: center;
+    display: none;
+    margin-bottom: 5vh;
+}
+
+#question-parent {
+    display: none;
+}
+
+.question {
+    width: 100%;
+    background-color: white;
+    border-radius: 0.5vh;
+    padding: 3vh;
+    box-sizing: border-box;
+}
+
+.question block-title {
+    display: flex;
+    align-items: center;
+    border-bottom: 0.2vh solid lightgray;
+    font-family: 'Product Sans Bold', monospace;
+    font-size: 4vh;
+    margin-bottom: 5vh;
+}
+
+.question .question-no {
+    font-family: 'Product Sans Regular', serif;
+    font-size: 3vh;
+}
+
+.question question {
+    font-family: 'Product Sans Bold', cursive;
+    font-size: 3.5vh;
+}
+
+.question option {
+    font-family: 'Product Sans Regular', cursive;
+    font-size: 3vh;
+    margin-bottom: 1.5vh;
+    padding: 1vh;
+    border: 0.3vh solid white;
+    color: white;
+    border-radius: 0.5vh;
+    background-color: #2D89E1;
+}
+
+.question option:hover {
+    cursor: pointer;
+    box-shadow: 0 0 2.5vh 0 lightgray;
+}
+
+.question block-footer {
+    display: flex;
+    border-top: 0.2vh solid lightgray;
+    padding-top: 2vh;
+    margin-top: 7vh;
+    justify-content: flex-end;
+}
+
+.question .button {
+    font-family: 'Product Sans Regular';
+    color: #2D89E1;
+    border: 0.3vh solid #2D89E1;
+    background-color: white;
+    padding: 1vh;
+    border-radius: 0.5vh;
+    width: 50%;
+    text-align: center;
+}
+
+.question .button:hover {
+    color: black;
+    border-color: black;
+    cursor: pointer;
+}
+
+.result-container {
+    background-color: white;
+    border-radius: 0.5vh;
+    width: 50%;
+    text-align: center;
+    padding: 5vh;
+    display: none;
+}
+
+.result-container img {
+    width: 40%;
+    margin-bottom: 5vh;
+    height: 60%;
+}
+
+.result-container h1 {
+    font-family: 'Product Sans Bold', fantasy;
+    font-size: 5vh;
+    display: block;
+    padding-bottom: 1vh;
+}
+
+.result-container h2 {
+    font-family: 'Product Sans Regular', cursive;
+    font-size: 3vh;
+    display: block;
+}
+
+@media (max-width: 1000px) {
+    .question .button {width: 100%;}
+    body {background-color: #2D89E1;}
+    .main-container-flexbox button {width: 80%; font-size: 4vh;}
+    .main-container-flexbox .rule-box {width: 90%;}
+    .result-container {width: 80%;}
+    .result-container img {width: 30%; height: 50%;}
+    .result-container h1 {font-size: 4vh;}
+    .result-container h2 {font-size: 3vh;}
+    .question question {font-size: 3vh;}
+    .question option {font-size: 2.5vh;}
+    .question block-title {font-size: 2.5vh;}
+}
