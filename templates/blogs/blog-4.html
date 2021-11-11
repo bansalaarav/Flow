@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <style media="screen">
+            @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+            @font-face {
+              font-family: "Product Sans Regular";
+              src: url("{{url_for('static', filename='ProductSansRegular.ttf')}}");
+            }
+
+
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            ::selection {
+                background-color: black;
+                color: white;
+            }
+
+            a #back-arrow {
+                font-size: 6vh;
+                padding-top: 3vh;
+                color: black;
+                text-decoration: none;
+            }
+
+            a #back-arrow:hover {
+                color: #2788E4;
+                cursor: pointer;
+            }
+
+            .blog-page-content-container {
+                margin-top: 5vh;
+                margin-left: 5%;
+                margin-right: 5%;
+                background-color: white;
+                margin-bottom: 5vh;
+                padding-left: 4vh;
+                padding-right: 4vh;
+                border: 0.5vh solid black;
+                font-family: 'Product Sans Regular';
+            }
+
+            .blog-page-content-container heading {
+                padding-top: 3vh;
+                display: block;
+                font-size: 6vh;
+                font-weight: 'bold';
+                text-decoration: underline;
+                padding-bottom: 1vh;
+                text-align: center;
+            }
+
+            .blog-page-content-container byline {
+                display: block;
+                font-size: 4vh;
+                font-weight: 'bold';
+                padding-bottom: 0.5vh;
+                text-align: center;
+            }
+
+            .blog-page-content-container date {
+                display: block;
+                font-size: 3vh;
+                font-weight: 'bold';
+                color: gray;
+                padding-bottom: 6vh;
+                text-align: center;
+            }
+
+            .blog-page-content-container blog-content {
+                display: block;
+                font-size: 3.5vh;
+                padding-bottom: 3vh;
+                text-align: justify;
+            }
+
+            .blog-page-content-container blog-content e {
+                color: #2788E4;
+            }
+
+            .blog-page-content-container section {
+                display: block;
+                font-size: 5vh;
+                padding-top: 4vh;
+                padding-bottom: 2.5vh;
+                text-align: center;
+                letter-spacing: 1px;
+            }
+
+            ol {
+                padding-left: 10vh;
+            }
+
+            img {
+                border: 1vh solid #2788E4;
+                width: 40%;
+                height: 35%;
+                margin-left: 30%;
+            }
+
+            .blog-page-content-container .image-caption {
+                font-size: 3vh;
+                color: gray;
+                text-align: center;
+            }
+
+            body {
+                margin: 0;
+                margin-top: 10vh;
+                padding: 0;
+            }
+
+            nav {
+                background-color: #2D89E1;
+                width: 100%;
+                height: 60px;
+            }
+
+            #logo {float: left;}
+
+            #logo a {
+                padding-left: 5vw;
+                font-size: 5vh;
+                font-family: 'Righteous', serif;
+                text-decoration: none;
+                color: white;
+            }
+
+            nav ul {
+                list-style: none;
+                font-family: 'Product Sans Regular', serif;
+                font-size: 2.5vh;
+                padding-top: 1.5vh;
+                padding-right: 5vw;
+                text-align: right;
+            }
+
+            nav ul li {
+                display: inline-block;
+                padding-right: 4vw;
+            }
+
+            nav ul #last-child {
+                padding-right: 5px;
+            }
+
+            nav ul li a {
+                color: white;
+                text-decoration: none;
+            }
+
+            nav ul li a:hover {
+                color: black;
+            }
+
+            .open {
+                text-align: right;
+                padding-right: 10px;
+                color: white;
+                font-size: 40px;
+                padding-top: 8px;
+                display: none;
+            }
+
+            .close {
+                text-align: right;
+                padding-right: 10px;
+                color: white;
+                font-size: 40px;
+                padding-top: 10px;
+                display: none;
+            }
+
+            .full-menu {
+                background: #2D89E1;
+                background-size: cover;
+                height: 0vh;
+                width: 100%;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                position: fixed;
+                z-index: 1;
+                overflow-x: hidden; /*disable horizontal scroll*/
+                transition: height 0.5s;
+            }
+
+            .full-menu ul {
+                list-style: none;
+                vertical-align: middle;
+                text-align: center;
+                font-family: 'Product Sans Regular', serif;
+                font-size: 5vh;
+                margin-top: 5vh;
+            }
+
+            .full-menu ul li {
+                display: block;
+                padding-bottom: 50px;
+            }
+
+            .full-menu ul li #last-child {
+                margin-bottom: none;
+            }
+
+            .full-menu ul li a {
+                text-decoration: none;
+                color: white;
+            }
+
+            .full-menu ul li a:hover {
+                color: black;
+            }
+
+            @media (max-width: 1100px) {
+                nav ul {
+                    display: none;
+                }
+
+                nav #logo {
+                    text-align: center;
+                }
+
+                .open {
+                    display: block;
+                }
+            }
+        </style>
+        <meta charset="utf-8">
+        <title>How Can Drone Technology Be Utilised In The Achievement Of The United Nations' Sustainable Development Goals? | FLOW Blog</title>
+    </head>
+    <body bgcolor="#2788E4">
+        <nav>
+            <div id="logo"><a href="/">FLOW</a></div>
+            <ul>
+                <li  id="first-child"><a href="/">Home</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Register</a></li>
+            </ul>
+            <div class="open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </nav>
+        <div class="full-menu">
+            <div class="close">
+                <i class="fa fa-times"></i>
+            </div>
+            <ul>
+                <li><a href="#" class="full-menu-link-item">Home</a></li>
+                <li><a href="#" class="full-menu-link-item">Login</a></li>
+                <li id="last-child" class="full-menu-link-item"><a href="#">Register</a></li>
+            </ul>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            var windowsize = $(window).width();
+
+            $(window).resize(function() {
+                var windowsize = $(window).width();
+                if (windowsize >= 955) {
+                    $(".full-menu").css("height", "0vh");
+                    $(".open").css("display", "none");
+                    $(".close").css("display", "none");
+                } else {
+                    $(".open").css("display", "block");
+                    $(".full-menu").css("height", "0vh");
+                    $(".close").css("display", "block");
+                }
+            });
+
+            $(document).ready(function() {
+                $(".open").click(function() {
+                    $(".full-menu").css("height", "100vh");
+                    $(".close").css("display", "block");
+                })
+                $(".close").click(function() {
+                    $(".full-menu").css("height", "0vh");
+                    $(".close").css("display", "none");
+                })
+                $(".full-menu-link-item").click(function() {
+                    $(".full-menu").css("height", "0vh");
+                })
+            })
+        </script>
+        <div class="blog-page-content-container">
+            <a href="/blog/"><i id="back-arrow" class="fa fa-arrow-circle-left"></i></a>
+            <heading>How Can Drone Technology Be Utilised In The Achievement Of The United Nations' Sustainable Development Goals?</heading>
+            <byline>Original by Aarav Bansal, Edited by Team FLOW</byline>
+            <date>11 November 2021</date>
+            <blog-content>
+                <p>As said in our previous articles, drone technology, which originated in military applications, is now widely used for commerical, professional, industrial and private purposes. Not only are drones
+                    eco-friendly gadgets, but they are also time and cost-efficient. In this post, we are going to see which industries drones dominate in these days and how these robots can be used to help achieve some of the SDGs set by the United Nations.</p>
+                <br>
+                <img src="{{url_for('static', filename='sdgs.jpg')}}" alt="The 12 sustainable development goals set by the UN">
+                <div class="image-caption">The 12 sustainable development goals set by the UN</div>
+                <section>Which Industries Do Drones Influence The Most These Days?</section>
+                <p>Drones can help in various sectors, some of the most promising ones being delivery, agriculture, e-commerce and health care. Hence, in the coming years, the adoption
+                    of drone technology will undoubtedly turn into a great trend as more and more industries embrace the technology. In the image shown below, we can see the photography and real estate industries were some of the most popular industries for drones in 2015 (and still are today).
+                    Let us now see some of the potential usages of drone technology.
+                </p>
+                <br>
+                
+            </p>
+            <img src="{{url_for('static', filename='piechartdroneindustries.png')}}" alt="Top industries influenced by the drone technology in 2015">
+            <div class="image-caption">Top industries influenced by the drone technology in 2015</div>
+            
+            <section>How Can Drones Help In The Agricultural Sector?</section>
+            <p>
+                Drone technology can help in the agricultural sector, and thus in the achievement of SDG 2 - Zero Hunger, in a number of ways, for example, to survey farm fields, 
+                to ensure product delivery and to spray pesticides. Rather than spraying the entire field, the pesticide can 
+                be delivered to the right spot, only in the quantity needed, which means reduction in pesticides used, 
+                reduction in collateral damage to wildlife and also enhanced cost-efficiency.</p>
+                <br>
+                
+                <img src="{{url_for('static', filename='dronesinjapan.jpg')}}" alt="A drone in Japan">
+                <div class="image-caption">A drone in Japan</div>
+                <br>
+                <p>
+                    The case of Japan provides a good illustration for such applications of the drone
+                    technology. Since the 1970s, this country has accumulated significant experience in this sphere.
+                    Nearly 2,000 UAVs are being used in Japan today
+                    for agricultural spraying and planting operations. Furthermore, drones can connect farmers
+                    to markets and thus ensure that everyone has access to affordable nutritious food. Let us now
+                    see how drones can help with scientific research.
+                </p>
+                <section>How Can Drones Help With Scientific Research</section>
+                <p>Apart from the agricultural usage of drones, they can also help in the achievement of many other other sustainable development goals by helping
+                    scientists with their research. Drones can withstand
+                    extreme conditions and are expendable, which
+                    makes them perfect research of diseases, pollution
+                    levels in regions with extreme weather conditions,
+                    radioactive areas and so on.</p>
+
+
+                <br>
+                <img src="{{url_for('static', filename='dronesinthearctic.jpg')}}" alt="A drone in the arctic" style="margin-left: 29%">
+                <div class="image-caption">A scientist in the Arctic region taking the help of a drone for research</div>
+
+                <section>Let's Conclude...</section>
+                <p>It is evident that drones are going to make
+                    a great contribution to the achievement of the
+                    SDGs. Drone technology not only has a promising robust influence in the agricultural sector,
+                    but in a number of other sectors.</p>
+                <br>
+            </blog-content>
+        </div>
+    </body>
+</html>

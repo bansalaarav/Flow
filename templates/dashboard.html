@@ -158,10 +158,12 @@
       }
 
       .dash-title {
-          text-align: center;
           color: white;
-          margin-top: 2%;
-          font-size: 7vh;
+          position: absolute;
+          left: 50%;
+          top: 20%;
+          transform: translate(-50%, -50%);
+          font-size: 5vw;
       }
 
       .quiz-stats-container {
@@ -284,7 +286,7 @@
         position: absolute;
         left: 10%;
         top: 50%;
-        font-size: 3vh;
+        font-size: 2.5vh;
         max-width: 15vw;
       }
 
@@ -319,7 +321,176 @@
     }
 
     @media (max-width: 1100px) {
+        .dash-title {
+          position: absolute;
+          left: 40%;
+          top: 20%;
+          transform: translate(-50%, -50%);
+          font-size: 6vh;
+        }
+
+        .quiz-stats-container {
+          background-color: #2d89e1;
+          width: 70%;
+          height: 40%;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          border-radius: 5vh;
+          box-shadow: 0px 0px 40px 0px #2d89e1;
+          text-align: center;
+      }
+
+      .quiz-stats-title {
+          color: white;
+          font-size: 7vh;
+          margin: 0;
+          position: relative;
+          left: 0%;
+          top: 10%;
+      }
+
+      .fa-users {
+          font-size: 6vh;
+          position: absolute;
+          left: 12%;
+          top: 45%;
+      }
+      
+      .fa-clock-o {
+        font-size: 8vh;
+          position: absolute;
+          left: 12%;
+          top: 70%;
+      }
+
+      .num-of-ppl-title {
+          position: absolute;
+          left: 35%;
+          top: 35%;
+          color: rgb(0, 0, 0, 0.5);
+          font-size: 15px;
+        }
         
+        .num-of-ppl {
+            position: absolute;
+            left: 35%;
+            top: 38%;
+            color: white;
+            font-size: 6vh;
+        }
+        
+        .avg-time-title {
+            position: absolute;
+            left: 35%;
+            top: 63%;
+            color: rgb(0, 0, 0, 0.5);
+            font-size: 15px;
+        }
+        
+        .avg-time {
+          font-size: 6vh;
+        position: absolute;
+          left: 35%;
+          top: 68%;
+          color: white;
+          font-size: 5vh;
+      }
+      .user-stats-1 {
+
+        background-color: white;
+          width: 35%;
+          height: 20%;
+          position: absolute;
+          left: 32%;
+          top: 82%;
+          transform: translate(-50%, -50%);
+          border-radius: 5vh;
+      }
+
+      .user-stats-2 {
+
+        background-color: white;
+          width: 33%;
+          height: 20%;
+          position: absolute;
+          left: 69%;
+          top: 82%;
+          transform: translate(-50%, -50%);
+          border-radius: 5vh;
+      }
+
+      .score {
+
+        color: black;
+        font-size: 60px;
+        margin: 0;
+        position: absolute;
+        left: 10%;
+        top: 5%;
+      }
+
+      .best-time {
+
+        color: black;
+        font-size: 65px;
+        margin: 0;
+        position: absolute;
+        left: 12%;
+        top: 5%;
+      }
+
+
+      .score-sub {
+
+        color: rgb(0, 0, 0, 0.5);
+        position: absolute;
+        left: 12%;
+        top: 40%;
+        font-size: 2vh;
+        max-width: 25vw;
+      }
+      
+      .best-time-sub {
+
+        color: rgb(0, 0, 0, 0.5);
+        position: absolute;
+        left: 10%;
+        top: 40%;
+        font-size: 1.70vh;
+        max-width: 25vw;
+      }
+
+
+      .play-button {
+        border: 0;
+        background: transparent;
+        box-sizing: border-box;
+        width: 0;
+        height: 35px;
+
+        border-color: transparent transparent transparent #ffffff;
+        transition: 100ms all ease;
+        
+        border-style: solid;
+        border-width: 20px 0 20px 33px;
+        position: relative;
+        left: 55%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .play-button-wrapper {
+        position: absolute;
+        left: 78%;
+        top: 24%;
+        transform: translate(-50%, -50%);
+        width: 70px;
+        height: 70px;
+        background-color: #2d89e1;
+        border-radius: 50%;
+    }
     }
     
 
@@ -346,7 +517,7 @@
     </nav>
     <div class="full-menu">
       <div class="close">
-            
+        <i class="fa fa-times"></i>
       </div>
       <ul>
         <li><a href="/quizzes/" class="full-menu-link-item">Quizzes</a></li>
