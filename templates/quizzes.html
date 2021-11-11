@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>QuizMe! by FLOW</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <style media="screen">
+            @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+            * {margin: 0; padding: 0;}
+
+            @font-face {
+              font-family: "Product Sans Regular";
+              src: url("./ProductSansRegular.ttf");
+            }
+
+            @font-face {
+              font-family: "Product Sans Bold";
+              src: url("./ProductSansBold.ttf");
+            }
+
+            body {
+                margin: 0;
+                margin-top: 10vh;
+                padding: 0;
+            }
+
+            nav {
+                background-color: black;
+                width: 100%;
+                height: 60px;
+            }
+
+            #logo {float: left;}
+
+            #logo a {
+                padding-left: 5vw;
+                font-size: 5vh;
+                font-family: 'Righteous', serif;
+                text-decoration: none;
+                color: white;
+            }
+
+            nav ul {
+                list-style: none;
+                font-family: 'Product Sans Regular', serif;
+                font-size: 2.5vh;
+                padding-top: 1.5vh;
+                padding-right: 5vw;
+                text-align: right;
+            }
+
+            nav ul li {
+                display: inline-block;
+                padding-right: 4vw;
+            }
+
+            nav ul #last-child {
+                padding-right: 5px;
+            }
+
+            nav ul li a {
+                color: white;
+                text-decoration: none;
+            }
+
+            nav ul li a:hover {
+                color: #2D89E1;
+            }
+
+            .open {
+                text-align: right;
+                padding-right: 10px;
+                color: white;
+                font-size: 40px;
+                padding-top: 8px;
+                display: none;
+            }
+
+            .close {
+                text-align: right;
+                padding-right: 10px;
+                color: white;
+                font-size: 40px;
+                padding-top: 10px;
+                display: none;
+            }
+
+            .full-menu {
+                background: black;
+                background-size: cover;
+                height: 0vh;
+                width: 100%;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                position: fixed;
+                z-index: 1;
+                overflow-x: hidden; /*disable horizontal scroll*/
+                transition: height 0.5s;
+            }
+
+            .full-menu ul {
+                list-style: none;
+                vertical-align: middle;
+                text-align: center;
+                font-family: 'Product Sans Regular', serif;
+                font-size: 5vh;
+                margin-top: 25vh;
+                margin-left: 6vh;
+            }
+
+            .full-menu ul li {
+                display: block;
+                padding-bottom: 50px;
+            }
+
+            .full-menu ul li #last-child {
+                margin-bottom: none;
+            }
+
+            .full-menu ul li a {
+                text-decoration: none;
+                color: white;
+            }
+
+            .full-menu ul li a:hover {
+                color: #2D89E1;
+            }
+
+            @media (max-width: 1100px) {
+                nav ul {
+                    display: none;
+                }
+
+                nav #logo {
+                    text-align: center;
+                }
+
+                .open {
+                    display: block;
+                }
+            }
+
+
+            /* ============================ Navbar Code Ends here... =============================== */
+
+            .main-flex {
+                display: flex;
+                padding: 5vh;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+
+            .quizme {
+                border-radius: 5vh;
+                flex-basis: 60%;
+            }
+
+            .quizme #topbar {
+                background-color: white;
+                border-radius: 3vh 3vh 0 0;
+                width: 100%;
+                display: flex;
+                padding: 1vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .quizme #topbar i {
+                font-size: 8vh;
+            }
+
+            #titlebar {
+                font-size: 5vh;
+                font-family: 'Product Sans Bold', cursive;
+                padding-left: 5vh;
+                padding-right: 5vh;
+                text-align: center;
+            }
+
+            @media (max-width: 500px) {
+                #titlebar {font-size: 3vh;}
+                i {font-size: 5vh;}
+            }
+
+            .quizme #topbar i:hover {
+                color: #2D89E1;
+                transition: all 0.2s ease-in-out;
+                cursor: pointer;
+            }
+
+            #quiz {
+                margin-right: -2vh !important;
+                height: 55vh;
+                display: flex;
+                border-radius: 0 0 5vh 5vh;
+                align-items: center;
+                justify-content: center;
+                background-color: #2489E1;
+            }
+
+            #quiz a {
+                color: white;
+                font-size: 20vh;
+                text-decoration: none;
+            }
+
+            #quiz a:hover {
+                cursor: pointer;
+                color: black;
+            }
+
+
+            /* =================== Quiz code ends here ================== */
+
+
+            .leaderboard {
+                margin-left: 10%;
+                font-family: 'Product Sans Regular', serif;
+                font-size: 5vh;
+            }
+
+            .leaderboard #tit {
+                font-family: 'Product Sans Bold', fantasy;
+                color: white;
+                background-color: #2D89E1;
+                padding-left: 5vh;
+                padding-right: 5vh;
+                padding-top: 1vh;
+                padding-bottom: 1vh;
+                border-radius: 5vh;
+                margin-bottom: 2vh;
+                text-align: center;
+            }
+
+             .leaderboard li {
+                text-align: center;
+                font-family: 'Product Sans Regular', cursive;
+                color: black;
+                background-color: #FFF;
+                padding-left: 5vh;
+                padding-right: 5vh;
+                padding-top: 1vh;
+                padding-bottom: 1vh;
+                border-radius: 5vh;
+                margin-bottom: 2vh;
+                list-style-type: none;
+            }
+
+            .leaderboard pos {
+                text-align: center;
+                font-family: 'Product Sans Bold', cursive;
+                color: white;
+                background-color: #2D89E1;
+                padding: 0 0.4cm 0 0.4cm;
+                border-radius: 5vh;
+                margin-bottom: 2vh;
+                margin-right: 2vh;
+            }
+
+
+             @media (max-width: 1000px) {
+                 body {margin-left: 3%; margin-right: 3%;}
+                .main-flex {flex-direction: column;}
+                .quizme {margin-bottom: 5vh; width: 100%;}
+                .leaderboard {width: 95%; margin-left: 0; }
+            }
+        </style>
+    </head>
+    <body bgcolor="black">
+        <nav>
+            <div id="logo"><a href="/">FLOW</a></div>
+            <ul>
+                <li id="first-child"><a href="#">Home</a></li>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+            <div class="open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </nav>
+        <div class="full-menu">
+            <div class="close">
+                <i class="fa fa-times"></i>
+            </div>
+            <ul>
+                <li><a href="#" class="full-menu-link-item">Home</a></li>
+                <li><a href="#" class="full-menu-link-item">Dashboard</a></li>
+                <li id="last-child" class="full-menu-link-item"><a href="#">Logout</a></li>
+            </ul>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            var windowsize = $(window).width();
+
+            $(window).resize(function() {
+                var windowsize = $(window).width();
+                if (windowsize >= 955) {
+                    $(".full-menu").css("height", "0vh");
+                    $(".open").css("display", "none");
+                    $(".close").css("display", "none");
+                } else {
+                    $(".open").css("display", "block");
+                    $(".full-menu").css("height", "0vh");
+                    $(".close").css("display", "block");
+                }
+            });
+
+            $(document).ready(function() {
+                $(".open").click(function() {
+                    $(".full-menu").css("height", "100vh");
+                    $(".close").css("display", "block");
+                })
+                $(".close").click(function() {
+                    $(".full-menu").css("height", "0vh");
+                    $(".close").css("display", "none");
+                })
+                $(".full-menu-link-item").click(function() {
+                    $(".full-menu").css("height", "0vh");
+                })
+            })
+        </script>
+
+
+        <!--========================== Navbar Code Ends here...==========================-->
+
+        <div class="main-flex">
+            <div class="quizme">
+                <div id="topbar">
+                    <i class="fa fa-chevron-left left"></i>
+                    <div id="titlebar">Quiz #1</div>
+                    <i class="fa fa-chevron-right right"></i>
+                </div>
+                <div id="quiz">
+                    <a id="changeable" href="quiz.html"><i class="fa fa-play-circle"></i></a>
+                </div>
+            </div>
+
+            <div class="leaderboard">
+                <div id="tit">Leaderboard</div>
+                <li><pos>1</pos> some_user</li>
+                <li><pos>2</pos> some_user</li>
+                <li><pos>3</pos> some_user</li>
+                <li><pos>4</pos> some_user</li>
+                <li><pos>5</pos> some_user</li>
+            </div>
+        </div>
+        <script>
+            let quizCount = 1;
+
+            $(document).ready(function() {
+                $(".left").on("click", function() {
+                    quizCount -= 1;
+                    if (quizCount <= 0) {
+                        quizCount = 4;
+                    }
+                    if (quizCount == 1) {
+                        $("#titlebar").text("Quiz #1");
+                        $("#quiz").css("background-color", "#2D89E1");
+                        $("#changeable").attr("href", "quiz.html");
+                    } else if (quizCount == 2) {
+                        $("#titlebar").text("Quiz #2");
+                        $("#quiz").css("background-color", "#B364D6");
+                        $("#changeable").attr("href", "quiz-2.html");
+                    } else if (quizCount == 3) {
+                        $("#titlebar").text("Quiz #3");
+                        $("#quiz").css("background-color", "turquoise");
+                        $("#changeable").attr("href", "#");
+                    } else if (quizCount == 4) {
+                        $("#titlebar").text("Quiz #4");
+                        $("#quiz").css("background-color", "#FFD433");
+                        $("#changeable").attr("href", "#");
+                    }
+                })
+
+                $(".right").on("click", function () {
+                    quizCount += 1;
+                    if (quizCount >= 5) {
+                        quizCount = 1;
+                    }
+                    if (quizCount == 1) {
+                        $("#titlebar").text("Quiz #1");
+                        $("#quiz").css("background-color", "#2D89E1");
+                        $("#changeable").attr("href", "quiz.html");
+                    } else if (quizCount == 2) {
+                        $("#titlebar").text("Quiz #2");
+                        $("#quiz").css("background-color", "#B364D6");
+                        $("#changeable").attr("href", "quiz-2.html");
+                    } else if (quizCount == 3) {
+                        $("#titlebar").text("Quiz #3");
+                        $("#quiz").css("background-color", "turquoise");
+                        $("#changeable").attr("href", "#");
+                    } else if (quizCount == 4) {
+                        $("#titlebar").text("Quiz #4");
+                        $("#quiz").css("background-color", "#FFD433");
+                        $("#changeable").attr("href", "#");
+                    }
+                })
+            })
+        </script>
+
+
+        <!--========================== Quiz Code ends here... ===========================-->
+    </body>
+</html>
