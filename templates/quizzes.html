@@ -11,14 +11,14 @@
             * {margin: 0; padding: 0;}
 
             @font-face {
-              font-family: "Product Sans Regular";
-              src: url("./ProductSansRegular.ttf");
-            }
+        font-family: "Product Sans Regular";
+        src: url("/static/ProductSansRegular.ttf");
+      }
 
-            @font-face {
-              font-family: "Product Sans Bold";
-              src: url("./ProductSansBold.ttf");
-            }
+      @font-face {
+        font-family: "Product Sans Bold";
+        src: url("/static/ProductSansBold.ttf");
+      }
 
             body {
                 margin: 0;
@@ -235,13 +235,14 @@
                 margin-bottom: 2vh;
                 text-align: center;
             }
-
-             .leaderboard li {
+            
+            .leaderboard li {
+                 font-size: 3vh;
                 text-align: center;
                 font-family: 'Product Sans Regular', cursive;
                 color: black;
                 background-color: #FFF;
-                padding-left: 5vh;
+                padding-left: 2vh;
                 padding-right: 5vh;
                 padding-top: 1vh;
                 padding-bottom: 1vh;
@@ -258,7 +259,7 @@
                 padding: 0 0.4cm 0 0.4cm;
                 border-radius: 5vh;
                 margin-bottom: 2vh;
-                margin-right: 2vh;
+                margin-right: 3vh;
             }
 
 
@@ -274,9 +275,9 @@
         <nav>
             <div id="logo"><a href="/">FLOW</a></div>
             <ul>
-                <li id="first-child"><a href="#">Home</a></li>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Logout</a></li>
+                <li id="first-child"><a href="/">Home</a></li>
+                <li><a href="/dashboard/">Dashboard</a></li>
+                <li><a href="/logout/">Logout</a></li>
             </ul>
             <div class="open">
                 <i class="fa fa-bars"></i>
@@ -287,9 +288,9 @@
                 <i class="fa fa-times"></i>
             </div>
             <ul>
-                <li><a href="#" class="full-menu-link-item">Home</a></li>
-                <li><a href="#" class="full-menu-link-item">Dashboard</a></li>
-                <li id="last-child" class="full-menu-link-item"><a href="#">Logout</a></li>
+                <li><a href="/" class="full-menu-link-item">Home</a></li>
+                <li><a href="/dashboard/" class="full-menu-link-item">Dashboard</a></li>
+                <li id="last-child" class="full-menu-link-item"><a href="/logout/">Logout</a></li>
             </ul>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -335,7 +336,7 @@
                     <i class="fa fa-chevron-right right"></i>
                 </div>
                 <div id="quiz">
-                    <a id="changeable" href="quiz.html"><i class="fa fa-play-circle"></i></a>
+                    <a id="changeable" href="/quizzes/quiz-1/"><i class="fa fa-play-circle"></i></a>
                 </div>
             </div>
 
@@ -360,11 +361,11 @@
                     if (quizCount == 1) {
                         $("#titlebar").text("Quiz #1");
                         $("#quiz").css("background-color", "#2D89E1");
-                        $("#changeable").attr("href", "quiz.html");
+                        $("#changeable").attr("href", "/quizzes/quiz-1/");
                     } else if (quizCount == 2) {
                         $("#titlebar").text("Quiz #2");
                         $("#quiz").css("background-color", "#B364D6");
-                        $("#changeable").attr("href", "quiz-2.html");
+                        $("#changeable").attr("href", "/quizzes/quiz-2/");
                     } else if (quizCount == 3) {
                         $("#titlebar").text("Quiz #3");
                         $("#quiz").css("background-color", "turquoise");
@@ -384,11 +385,11 @@
                     if (quizCount == 1) {
                         $("#titlebar").text("Quiz #1");
                         $("#quiz").css("background-color", "#2D89E1");
-                        $("#changeable").attr("href", "quiz.html");
+                        $("#changeable").attr("href", "/quizzes/quiz-1/");
                     } else if (quizCount == 2) {
                         $("#titlebar").text("Quiz #2");
                         $("#quiz").css("background-color", "#B364D6");
-                        $("#changeable").attr("href", "quiz-2.html");
+                        $("#changeable").attr("href", "/quizzes/quiz-2/");
                     } else if (quizCount == 3) {
                         $("#titlebar").text("Quiz #3");
                         $("#quiz").css("background-color", "turquoise");

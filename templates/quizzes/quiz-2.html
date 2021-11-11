@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <link rel="stylesheet" href="{{url_for('static', filename='quiz-style.css')}}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <style media="screen">
+            :root {
+                --primaryColor: #B364D6;
+            }
+
+            .main-container-flexbox {
+                background-color: var(--primaryColor);
+            }
+
+            #main-button {
+                 background-color: var(--primaryColor);
+            }
+
+            #main-button:hover {
+                background-color: white;
+                color: var(--primaryColor);
+            }
+
+            e {
+                color: var(--primaryColor) !important;
+            }
+
+            option {
+                background-color: var(--primaryColor);
+            }
+
+            .button {
+                border-color: var(--primaryColor) !important;
+                color: var(--primaryColor) !important;
+            }
+
+            .button:hover {
+                border-color: black !important;
+                color: black !important;
+            }
+
+            .rb-start {
+                color: var(--primaryColor) !important;
+                border-color: var(--primaryColor) !important;
+            }
+
+            .rb-close {
+                border-color: var(--primaryColor) !important;
+                background-color: var(--primaryColor) !important;
+            }
+
+            .importantRule {
+                background-color: var(--primaryColor) !important;
+                color: white !important;
+            }
+
+            .result-container {
+                width: 90% !important;
+            }
+
+            @media (max-width: 1000px) {
+                .result-container {
+                    width: 90%;
+                }
+
+                body {
+                    background-color: "#B364D6" !important;
+                }
+            }
+        </style>
+        <meta charset="utf-8">
+        <title>Drone Technology - Quiz 2</title>
+    </head>
+    <body>
+        <div class="main-container-flexbox">
+            <div class="time-left-counter"  id="time-container">Time Left: <time-left id="count-timer">60</time-left></div>
+            <button id="main-button">Start Quiz</button>
+            <div class="rule-box" id="quiz-rules">
+                <box-title>Quiz Rules</box-title>
+                <ol>
+                    <li>1. You cannot restart the quiz once opened. If you close the browser window, your quiz score will not be reflected on your dashboard.</li>
+                    <li>2. If you switch tabs or windows during the test, the quiz will be automatically closed.</li>
+                    <li>3. You have only <e>60 seconds (1 minute)</e> to answer all quiz questions. No option can be selected post this time limitation.</li>
+                    <li>4. The questions can be in any form, inlcluding True/False statements, One-word answers, etc.</li>
+                    <li>5. Points will be assigned to you on the basis of the correct answers you select.</li>
+                    <li><e>Pro Tip: Quiz Questions are generally from our blogs.</e></li>
+                </ol>
+                <div class="button-holder">
+                    <button id="rb-button1" class="rb-start" style="margin-right: 3vh;">Start</button>
+                    <button id="rb-button2" class="rb-close">Quit</button>
+                </div>
+            </div>
+
+            <!--Questions-->
+            <div id="question-parent">
+                <div class="question" id="set1">
+                    <block-title>
+                        <div style="padding-right: 10vh;">Drone Technology: Quiz 2</div>
+                        <div class="question-no">Question <b>1</b> of <b>10</b></div>
+                    </block-title>
+
+                    <question>How many types of drones are there?</question>
+                    <div class="options">
+                        <option class="options-choices" style="margin-top: 2vh;">Just One</option>
+                    </div><div class="options">
+                        <option class="options-choices correct">Two</option>
+                    </div><div class="options">
+                        <option class="options-choices">Four</option>
+                    </div><div class="options">
+                        <option class="options-choices">Infinitely many</option>
+                    </div>
+
+                    <block-footer>
+                        <option class="button" id="set1-skip">Skip to Next Que</option>
+                    </block-footer>
+                </div>
+
+                <div class="question" id="set2" style="display: none;">
+                    <block-title>
+                        <div style="padding-right: 10vh;">Drone Technology: Quiz 2</div>
+                        <div class="question-no">Question <b>2</b> of <b>10</b></div>
+                    </block-title>
+
+                    <question>How do fixed-wing Drones work?</question>
+                    <div class="options">
+                        <option class="options-choices" style="margin-top: 2vh;">Using rotors</option>
+                    </div><div class="options">
+                        <option class="options-choices correct">Using gliding wings</option>
+                    </div><div class="options">
+                        <option class="options-choices">Like commercial helicopters</option>
+                    </div><div class="options">
+                        <option class="options-choices">I don't know</option>
+                    </div>
+
+                    <block-footer>
+                        <option class="button" id="set2-skip">Skip to Next Que</option>
+                    </block-footer>
+                </div>
+
+                <div class="question" id="set3" style="display: none;">
+                    <block-title>
+                        <div style="padding-right: 10vh;">Drone Technology: Quiz 2</div>
+                        <div class="question-no">Question <b>3</b> of <b>10</b></div>
+                    </block-title>
+
+                    <question>How do many drones connect to their controller?</question>
+                    <div class="options">
+                        <option class="options-choices correct" style="margin-top: 2vh;">Using Wi-Fi</option>
+                    </div><div class="options">
+                        <option class="options-choices">Using telegraphic wires</option>
+                    </div><div class="options">
+                        <option class="options-choices">Using teleportation</option>
+                    </div><div class="options">
+                        <option class="options-choices">Using the VariVer Network</option>
+                    </div>
+
+                    <block-footer>
+                        <option class="button" id="set3-skip">Skip to Next Que</option>
+                    </block-footer>
+                </div>
+
+                <div class="question" id="set4" style="display: none;">
+                    <block-title>
+                        <div style="padding-right: 10vh;">Drone Technology: Quiz 2</div>
+                        <div class="question-no">Question <b>4</b> of <b>10</b></div>
+                    </block-title>
+
+                    <question>What is a potential disadvantage of fixed-wing Drones?</question>
+                    <div class="options">
+                        <option class="options-choices" style="margin-top: 2vh;">Slow take-off</option>
+                    </div><div class="options">
+                        <option class="options-choices correct">Harsh landings</option>
+                    </div><div class="options">
+                        <option class="options-choices">Not battery operated</option>
+                    </div><div class="options">
+                        <option class="options-choices">Attract UFOs</option>
+                    </div>
+
+                    <block-footer>
+                        <option class="button" id="set4-skip">Skip to Next Que</option>
+                    </block-footer>
+                </div>
+
+                <div class="question" id="set5" style="display: none;">
+                    <block-title>
+                        <div style="padding-right: 10vh;">Drone Technology: Quiz 2</div>
+                        <div class="question-no">Question <b>5</b> of <b>10</b></div>
+                    </block-title>
+
+                    <question>What is a potential disadvantage of rotor Drones?</question>
+                    <div class="options">
+                        <option class="options-choices" style="margin-top: 2vh;">No disadvantage</option>
+                    </div><div class="options">
+                        <option class="options-choices">Slow rection to commands</option>
+                    </div><div class="options">
+                        <option class="options-choices">Short connectivity</option>
+                    </div><div class="options">
+                        <option class="options-choices correct">Short battery lives</option>
+                    </div>
+
+                    <block-footer>
+                        <option class="button" id="set5-skip">Skip to Next Que</option>
+                    </block-footer>
+                </div>
+
+                <div class="question" id="set6" style="display: none;">
+                    <block-title>
+                        <div style="padding-right: 10vh;">Drone Technology: Quiz 2</div>
+                        <div class="question-no">Question <b>6</b> of <b>10</b></div>
+                    </block-title>
+
+                    <question>What is an altimeter</question>
+                    <div class="options">
+                        <option class="options-choices" style="margin-top: 2vh;">Nothing at all</option>
+                    </div><div class="options">
+                        <option class="options-choices correct">Altitude Detection System</option>
+                    </div><div class="options">
+                        <option class="options-choices">Altitude Mapping System</option>
+                    </div><div class="options">
+                        <option class="options-choices">Another name for accelerometer</option>
+                    </div>
+
+                    <block-footer>
+                        <option class="button" id="set6-skip">Skip to Next Que</option>
+                    </block-footer>
+                </div>
+
+                <div class="question" id="set7" style="display: none;">
+                    <block-title>
+                        <div style="padding-right: 10vh;">Drone Technology: Quiz 2</div>
+                        <div class="question-no">Question <b>7</b> of <b>10</b></div>
+                    </block-title>
+
+                    <question>FITB: New drones have special __________</question>
+                    <div class="options">
+                        <option class="options-choices correct" style="margin-top: 2vh;">Cameras</option>
+                    </div><div class="options">
+                        <option class="options-choices">Adysinometers</option>
+                    </div><div class="options">
+                        <option class="options-choices">Drones</option>
+                    </div><div class="options">
+                        <option class="options-choices">None of these</option>
+                    </div>
+
+                    <block-footer>
+                        <option class="button" id="set7-skip">Skip to Next Que</option>
+                    </block-footer>
+                </div>
+
+                <div class="question" id="set8" style="display: none;">
+                    <block-title>
+                        <div style="padding-right: 10vh;">Drone Technology: Quiz 2</div>
+                        <div class="question-no">Question <b>8</b> of <b>10</b></div>
+                    </block-title>
+
+                    <question>What is one of the greatest inventions man has to his credit?</question>
+                    <div class="options">
+                        <option class="options-choices correct" style="margin-top: 2vh;">The Camera</option>
+                    </div><div class="options">
+                        <option class="options-choices">The Drone Model-B2A7</option>
+                    </div><div class="options">
+                        <option class="options-choices">The Universe</option>
+                    </div><div class="options">
+                        <option class="options-choices">Nothing at all</option>
+                    </div>
+
+                    <block-footer>
+                        <option class="button" id="set8-skip">Skip to Next Que</option>
+                    </block-footer>
+                </div>
+
+                <div class="question" id="set9" style="display: none;">
+                    <block-title>
+                        <div style="padding-right: 10vh;">Drone Technology: Quiz 2</div>
+                        <div class="question-no">Question <b>9</b> of <b>10</b></div>
+                    </block-title>
+
+                    <question>What will 5G do to Drone Technology?</question>
+                    <div class="options">
+                        <option class="options-choices" style="margin-top: 2vh;">Render it useless</option>
+                    </div><div class="options">
+                        <option class="options-choices correct">Improve it</option>
+                    </div><div class="options">
+                        <option class="options-choices">Nothing</option>
+                    </div><div class="options">
+                        <option class="options-choices">None of these</option>
+                    </div>
+
+                    <block-footer>
+                        <option class="button" id="set9-skip">Skip to Next Que</option>
+                    </block-footer>
+                </div>
+
+                <div class="question" id="set10" style="display: none;">
+                    <block-title>
+                        <div style="padding-right: 10vh;">Drone Technology: Quiz 2</div>
+                        <div class="question-no">Question <b>10</b> of <b>10</b></div>
+                    </block-title>
+
+                    <question>What information is not provided to the controller?</question>
+                    <div class="options">
+                        <option class="options-choices" style="margin-top: 2vh;">Speed of the Drone</option>
+                    </div><div class="options">
+                        <option class="options-choices">Orientation of the Drone</option>
+                    <div class="options">
+                        <option class="options-choices" style="margin-top: 2vh;">Images of surroundings</option>
+                    </div><div class="options">
+                        <option class="options-choices correct">Pin Code of the area</option>
+                    <block-footer>
+                        <option class="button" id="set10-skip">See Quiz Results</option>
+                    </block-footer>
+                </div>
+            </div>
+        </div>
+
+        <!--Quiz Results-->
+        <div class="result-container">
+            <img src="crown.png" alt="crown">
+            <h1>Congratulations!</h1>
+            <h2>You have successfully completed the Quiz with a score of <points id="result-score"><b>0</b></points> out of <b>10</b></h2>
+        </div>
+
+        <script type="text/javascript">
+            let startTimer = false;
+            let currentCount = document.getElementById("count-timer").innerHTML;
+
+            let score = 0;
+
+            $(document).ready(function() {
+                $(document).on("click", "#main-button", function() {
+                    $("#main-button").css("display", "none");
+                    $("#quiz-rules").css("display", "block");
+                })
+
+                $(document).on("click", ".rb-close", function() {
+                    $("#main-button").css("display", "block");
+                    $("#quiz-rules").css("display", "none");
+                })
+
+                $(document).on("click", ".rb-start", function() {
+                    $("#quiz-rules").css("display", "none");
+                    $("#time-container").css("display", "block");
+                    $("#question-parent").css("display", "block");
+                    startTimer = true;
+                })
+
+// Quiz code starts here -----------------------------------------------------
+                // This adds a new class to the options, to change the color scheme of our quiz
+                $(".options-choices").addClass("importantRule");
+
+                // This changes the options background-color upon click
+                $(document).on("click", ".options", function() {
+                    $(".options-choices").removeClass("importantRule");
+                    $(".options-choices").css("background-color", "white");
+                    $(".options-choices").css("color", "#2D89E1");
+                    $(".options-choices").css("border", "0.4vh solid red");
+                    $(".correct").css("border", "0.4vh solid #00DE00");
+                    $(".correct").prop("disabled", true); // So that users don't increase their points by random clicking
+                })
+
+                // This increases the score for every correct answer
+                $(document).on("click", ".correct", function() {
+                    score += 1;
+                })
+
+                // This resets the option colors upon 'skip' button click
+                $(document).on("click", ".button", function() {
+                    $(".options-choices").addClass("importantRule");
+                    $(".options-choices").css("border-color", "white");
+                    $(".correct").prop("disabled", false); // Resetting integral code
+                })
+
+                // Code the set changes here...
+                $(document).on("click", "#set1-skip", function() {
+                    $("#set1").css("display", "none");
+                    $("#set2").css("display", "block");
+                })
+                $(document).on("click", "#set2-skip", function() {
+                    $("#set2").css("display", "none");
+                    $("#set3").css("display", "block");
+                })
+                $(document).on("click", "#set3-skip", function() {
+                    $("#set3").css("display", "none");
+                    $("#set4").css("display", "block");
+                })
+                $(document).on("click", "#set4-skip", function() {
+                    $("#set4").css("display", "none");
+                    $("#set5").css("display", "block");
+                })
+                $(document).on("click", "#set5-skip", function() {
+                    $("#set5").css("display", "none");
+                    $("#set6").css("display", "block");
+                })
+                $(document).on("click", "#set6-skip", function() {
+                    $("#set6").css("display", "none");
+                    $("#set7").css("display", "block");
+                })
+                $(document).on("click", "#set7-skip", function() {
+                    $("#set7").css("display", "none");
+                    $("#set8").css("display", "block");
+                })
+                $(document).on("click", "#set8-skip", function() {
+                    $("#set8").css("display", "none");
+                    $("#set9").css("display", "block");
+                })
+                $(document).on("click", "#set9-skip", function() {
+                    $("#set9").css("display", "none");
+                    $("#set10").css("display", "block");
+                })
+
+                // Code result declaration here...
+                $(document).on("click", "#set10-skip", function() {
+                    $("#set9").css("display", "none");
+                    $("#set10").css("display", "none");
+                    $("#result-score").text(score);
+                    $(".result-container").css("display", "flex");
+                    $(".result-container").css("flex-direction", "column");
+                    $(".result-container").css("align-items", "center");
+                    $(".result-container").css("justify-content", "center");
+                    $("#time-container").css("display", "none");
+                    clearInterval(countdown);
+                })
+            })
+
+            let countdown = setInterval(timer, 1000)
+            function timer() {
+                if (startTimer && currentCount>0) {
+                    document.getElementById("count-timer").innerHTML = currentCount - 1;
+                    currentCount = currentCount - 1;
+                } else if (currentCount<=0) {
+                    $("#time-container").css("display", "none");
+                    $("#question-parent").css("display", "none");
+                    $("#result-score").text(score);
+                    $(".result-container").css("display", "flex");
+                    $(".result-container").css("flex-direction", "column");
+                    $(".result-container").css("align-items", "center");
+                    $(".result-container").css("justify-content", "center");
+                    clearInterval(countdown);
+                    return;
+                }
+            }
+        </script>
+    </body>
+</html>

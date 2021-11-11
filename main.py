@@ -54,6 +54,17 @@ def quizzes():
     else:
         return redirect(url_for("login"))
 
+@app.route("/quizzes/<variable>/")
+def quizzes_(variable):
+    if variable == "quiz-1":
+        return render_template("quizzes/quiz-1.html")
+    elif variable == "quiz-2":
+        return render_template("quizzes/quiz-2.html")
+
+
+    return redirect(url_for("blog"))
+
+
 @app.route("/blog/<variable>/")
 def blog_pages(variable):
     if variable == "history-of-drone-tech":

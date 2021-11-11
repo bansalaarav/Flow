@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <link rel="stylesheet" href="{{url_for('static', filename='quiz-style.css')}}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <meta charset="utf-8">
+        <title>Drone Technology - Quiz 1</title>
+    </head>
+    <body>
+        <div class="main-container-flexbox">
+            <div class="time-left-counter"  id="time-container">Time Left: <time-left id="count-timer">60</time-left></div>
+            <button id="main-button">Start Quiz</button>
+            <div class="rule-box" id="quiz-rules">
+                <box-title>Quiz Rules</box-title>
+                <ol>
+                    <li>1. You cannot restart the quiz once opened. If you close the browser window, your quiz score will not be reflected on your dashboard.</li>
+                    <li>2. If you switch tabs or windows during the test, the quiz will be automatically closed.</li>
+                    <li>3. You have only <e>60 seconds (1 minute)</e> to answer all quiz questions. No option can be selected post this time limitation.</li>
+                    <li>4. The questions can be in any form, inlcluding True/False statements, One-word answers, etc.</li>
+                    <li>5. Points will be assigned to you on the basis of the correct answers you select.</li>
+                    <li><e>Pro Tip: Quiz Questions are generally from our blogs.</e></li>
+                </ol>
+                <div class="button-holder">
+                    <button id="rb-button1" class="rb-start" style="margin-right: 3vh;">Start</button>
+                    <button id="rb-button2" class="rb-close">Quit</button>
+                </div>
+            </div>
+
+            <!--Questions-->
+            <div id="question-parent">
+                <div class="question" id="set1">
+                    <block-title>
+                        <div style="padding-right: 10vh;">Drone Technology: Quiz 1</div>
+                        <div class="question-no">Question <b>1</b> of <b>10</b></div>
+                    </block-title>
+
+                    <question>What exactly are drones?</question>
+                    <div class="options">
+                        <option class="options-choices" style="margin-top: 2vh;">Flying refrigerators</option>
+                    </div><div class="options">
+                        <option class="options-choices">Flying aeroplane like devices</option>
+                    </div><div class="options">
+                        <option class="options-choices correct">Flying robots</option>
+                    </div><div class="options">
+                        <option class="options-choices">None of these</option>
+                    </div>
+
+                    <block-footer>
+                        <option class="button" id="set1-skip">Skip to Next Que</option>
+                    </block-footer>
+                </div>
+
+                <div class="question" id="set2" style="display: none;">
+                    <block-title>
+                        <div style="padding-right: 10vh;">Drone Technology: Quiz 1</div>
+                        <div class="question-no">Question <b>2</b> of <b>10</b></div>
+                    </block-title>
+
+                    <question>Select the correct nomenclature for drones.</question>
+                    <div class="options">
+                        <option class="options-choices correct" style="margin-top: 2vh;">Bees</option>
+                    </div><div class="options">
+                        <option class="options-choices">Cars</option>
+                    </div><div class="options">
+                        <option class="options-choices">Aeroplanes</option>
+                    </div><div class="options">
+                        <option class="options-choices">I don't know</option>
+                    </div>
+
+                    <block-footer>
+                        <option class="button" id="set2-skip">Skip to Next Que</option>
+                    </block-footer>
+                </div>
+
+                <div class="question" id="set3" style="display: none;">
+                    <block-title>
+                        <div style="padding-right: 10vh;">Drone Technology: Quiz 1</div>
+                        <div class="question-no">Question <b>3</b> of <b>10</b></div>
+                    </block-title>
+
+                    <question>What was the first drone <b>to be developed</b>?</question>
+                    <div class="options">
+                        <option class="options-choices" style="margin-top: 2vh;">Queen Bee</option>
+                    </div><div class="options">
+                        <option class="options-choices">Mango Milkshake</option>
+                    </div><div class="options">
+                        <option class="options-choices">USSR Enterprise</option>
+                    </div><div class="options">
+                        <option class="options-choices correct">Kettering Bug</option>
+                    </div>
+
+                    <block-footer>
+                        <option class="button" id="set3-skip">Skip to Next Que</option>
+                    </block-footer>
+                </div>
+
+                <div class="question" id="set4" style="display: none;">
+                    <block-title>
+                        <div style="padding-right: 10vh;">Drone Technology: Quiz 1</div>
+                        <div class="question-no">Question <b>4</b> of <b>10</b></div>
+                    </block-title>
+
+                    <question>What is the other name for a drone?</question>
+                    <div class="options">
+                        <option class="options-choices" style="margin-top: 2vh;">Unmanned Surveillance System (USS)</option>
+                    </div><div class="options">
+                        <option class="options-choices correct">Unmanned Aircraft System (UAS)</option>
+                    </div><div class="options">
+                        <option class="options-choices">Supervised Flying System (SFS)</option>
+                    </div><div class="options">
+                        <option class="options-choices">Unidentified Flying Object (UFO)</option>
+                    </div>
+
+                    <block-footer>
+                        <option class="button" id="set4-skip">Skip to Next Que</option>
+                    </block-footer>
+                </div>
+
+                <div class="question" id="set5" style="display: none;">
+                    <block-title>
+                        <div style="padding-right: 10vh;">Drone Technology: Quiz 1</div>
+                        <div class="question-no">Question <b>5</b> of <b>10</b></div>
+                    </block-title>
+
+                    <question>When was Venice battling the Austrians for independence?</question>
+                    <div class="options">
+                        <option class="options-choices" style="margin-top: 2vh;">1900</option>
+                    </div><div class="options">
+                        <option class="options-choices correct">1859</option>
+                    </div><div class="options">
+                        <option class="options-choices">1000</option>
+                    </div><div class="options">
+                        <option class="options-choices">2012</option>
+                    </div>
+
+                    <block-footer>
+                        <option class="button" id="set5-skip">Skip to Next Que</option>
+                    </block-footer>
+                </div>
+
+                <div class="question" id="set6" style="display: none;">
+                    <block-title>
+                        <div style="padding-right: 10vh;">Drone Technology: Quiz 1</div>
+                        <div class="question-no">Question <b>6</b> of <b>10</b></div>
+                    </block-title>
+
+                    <question>When did the US National Army influence the widespread use of Drones, by using them to monitor the Mexican border?</question>
+                    <div class="options">
+                        <option class="options-choices" style="margin-top: 2vh;">They didn't</option>
+                    </div><div class="options">
+                        <option class="options-choices">2018</option>
+                    </div><div class="options">
+                        <option class="options-choices">2012</option>
+                    </div><div class="options">
+                        <option class="options-choices correct">2006</option>
+                    </div>
+
+                    <block-footer>
+                        <option class="button" id="set6-skip">Skip to Next Que</option>
+                    </block-footer>
+                </div>
+
+                <div class="question" id="set7" style="display: none;">
+                    <block-title>
+                        <div style="padding-right: 10vh;">Drone Technology: Quiz 1</div>
+                        <div class="question-no">Question <b>7</b> of <b>10</b></div>
+                    </block-title>
+
+                    <question>Who is Mr. Jeff Bezoz?</question>
+                    <div class="options">
+                        <option class="options-choices correct" style="margin-top: 2vh;">The Amazon CEO in 2006</option>
+                    </div><div class="options">
+                        <option class="options-choices">The current CEO of SpaceInnovation Inc.</option>
+                    </div><div class="options">
+                        <option class="options-choices">Project Manager at SpaceX</option>
+                    </div><div class="options">
+                        <option class="options-choices">None of these</option>
+                    </div>
+
+                    <block-footer>
+                        <option class="button" id="set7-skip">Skip to Next Que</option>
+                    </block-footer>
+                </div>
+
+                <div class="question" id="set8" style="display: none;">
+                    <block-title>
+                        <div style="padding-right: 10vh;">Drone Technology: Quiz 1</div>
+                        <div class="question-no">Question <b>8</b> of <b>10</b></div>
+                    </block-title>
+
+                    <question>What is the full form of UAV?</question>
+                    <div class="options">
+                        <option class="options-choices correct" style="margin-top: 2vh;">Unmanned Aerial Vehicle</option>
+                    </div><div class="options">
+                        <option class="options-choices">Unidentified Aerial Variter</option>
+                    </div><div class="options">
+                        <option class="options-choices">Unidentified Aerial Vehicle</option>
+                    </div><div class="options">
+                        <option class="options-choices">Unified Armed Vitifier</option>
+                    </div>
+
+                    <block-footer>
+                        <option class="button" id="set8-skip">Skip to Next Que</option>
+                    </block-footer>
+                </div>
+
+                <div class="question" id="set9" style="display: none;">
+                    <block-title>
+                        <div style="padding-right: 10vh;">Drone Technology: Quiz 1</div>
+                        <div class="question-no">Question <b>9</b> of <b>10</b></div>
+                    </block-title>
+
+                    <question>What did Mr. Chris Anderson do in 2012?</question>
+                    <div class="options">
+                        <option class="options-choices" style="margin-top: 2vh;">Joined Wired Inc.</option>
+                    </div><div class="options">
+                        <option class="options-choices correct">Resigned from Wired Inc.</option>
+                    </div><div class="options">
+                        <option class="options-choices">Invent the first commercial Drone</option>
+                    </div><div class="options">
+                        <option class="options-choices">Founded 3DRobotics (3DR)</option>
+                    </div>
+
+                    <block-footer>
+                        <option class="button" id="set9-skip">Skip to Next Que</option>
+                    </block-footer>
+                </div>
+
+                <div class="question" id="set10" style="display: none;">
+                    <block-title>
+                        <div style="padding-right: 10vh;">Drone Technology: Quiz 1</div>
+                        <div class="question-no">Question <b>10</b> of <b>10</b></div>
+                    </block-title>
+
+                    <question>The Kettering Bug could be piloted manually.</question>
+                    <div class="options">
+                        <option class="options-choices correct" style="margin-top: 2vh;">True</option>
+                    </div><div class="options">
+                        <option class="options-choices">False</option>
+                    <block-footer>
+                        <option class="button" id="set10-skip">See Quiz Results</option>
+                    </block-footer>
+                </div>
+            </div>
+        </div>
+
+        <!--Quiz Results-->
+        <div class="result-container">
+            <img src="crown.png" alt="crown">
+            <h1>Congratulations!</h1>
+            <h2>You have successfully completed the Quiz with a score of <points id="result-score"><b>0</b></points> out of <b>10</b></h2>
+        </div>
+
+        <script type="text/javascript">
+            let startTimer = false;
+            let currentCount = document.getElementById("count-timer").innerHTML;
+
+            let score = 0;
+
+            $(document).ready(function() {
+                $(document).on("click", "#main-button", function() {
+                    $("#main-button").css("display", "none");
+                    $("#quiz-rules").css("display", "block");
+                })
+
+                $(document).on("click", ".rb-close", function() {
+                    $("#main-button").css("display", "block");
+                    $("#quiz-rules").css("display", "none");
+                })
+
+                $(document).on("click", ".rb-start", function() {
+                    $("#quiz-rules").css("display", "none");
+                    $("#time-container").css("display", "block");
+                    $("#question-parent").css("display", "block");
+                    startTimer = true;
+                })
+
+// Quiz code starts here -----------------------------------------------------
+
+                // This changes the options background-color upon click
+                $(document).on("click", ".options", function() {
+                    $(".options-choices").css("background-color", "white");
+                    $(".options-choices").css("color", "#2D89E1");
+                    $(".options-choices").css("border", "0.4vh solid red");
+                    $(".correct").css("border", "0.4vh solid #00DE00");
+                    $(".correct").prop("disabled", true); // So that users don't increase their points by random clicking
+                })
+
+                // This increases the score for every correct answer
+                $(document).on("click", ".correct", function() {
+                    score += 1;
+                })
+
+                // This resets the option colors upon 'skip' button click
+                $(document).on("click", ".button", function() {
+                    $(".options-choices").css("background-color", "#2D89E1");
+                    $(".options-choices").css("color", "white");
+                    $(".options-choices").css("border-color", "white");
+                    $(".correct").prop("disabled", false); // Resetting integral code
+                })
+
+                // Code the set changes here...
+                $(document).on("click", "#set1-skip", function() {
+                    $("#set1").css("display", "none");
+                    $("#set2").css("display", "block");
+                })
+                $(document).on("click", "#set2-skip", function() {
+                    $("#set2").css("display", "none");
+                    $("#set3").css("display", "block");
+                })
+                $(document).on("click", "#set3-skip", function() {
+                    $("#set3").css("display", "none");
+                    $("#set4").css("display", "block");
+                })
+                $(document).on("click", "#set4-skip", function() {
+                    $("#set4").css("display", "none");
+                    $("#set5").css("display", "block");
+                })
+                $(document).on("click", "#set5-skip", function() {
+                    $("#set5").css("display", "none");
+                    $("#set6").css("display", "block");
+                })
+                $(document).on("click", "#set6-skip", function() {
+                    $("#set6").css("display", "none");
+                    $("#set7").css("display", "block");
+                })
+                $(document).on("click", "#set7-skip", function() {
+                    $("#set7").css("display", "none");
+                    $("#set8").css("display", "block");
+                })
+                $(document).on("click", "#set8-skip", function() {
+                    $("#set8").css("display", "none");
+                    $("#set9").css("display", "block");
+                })
+                $(document).on("click", "#set9-skip", function() {
+                    $("#set9").css("display", "none");
+                    $("#set10").css("display", "block");
+                })
+
+                // Code result declaration here...
+                $(document).on("click", "#set10-skip", function() {
+                    $("#set9").css("display", "none");
+                    $("#set10").css("display", "none");
+                    $("#result-score").text(score);
+                    $(".result-container").css("display", "flex");
+                    $(".result-container").css("flex-direction", "column");
+                    $(".result-container").css("align-items", "center");
+                    $(".result-container").css("justify-content", "center");
+                    $("#time-container").css("display", "none");
+                })
+            })
+
+            let countdown = setInterval(timer, 1000)
+            function timer() {
+                if (startTimer && currentCount>0) {
+                    document.getElementById("count-timer").innerHTML = currentCount - 1;
+                    currentCount = currentCount - 1;
+                } else if (currentCount<=0) {
+                    $("#time-container").css("display", "none");
+                    $("#question-parent").css("display", "none");
+                    $("#result-score").text(score);
+                    $(".result-container").css("display", "block");
+                    clearInterval(countdown);
+                    return;
+                }
+            }
+        </script>
+    </body>
+</html>
