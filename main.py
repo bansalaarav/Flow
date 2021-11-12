@@ -88,6 +88,11 @@ def privacy_policy():
 def blog():
     return render_template("blog-page.html")
 
+
+@app.route("/about/")
+def about():
+    return render_template("about.html")
+
 @app.route("/dashboard/")
 def dashboard():
     if session.get("logged-in"):
