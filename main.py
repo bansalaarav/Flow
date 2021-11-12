@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
+import smtplib, ssl
+
 
 app = Flask(__name__)
 
@@ -23,11 +25,54 @@ class User(db.Model):
     best_time = db.Column(db.Integer, default=0)
 
 
-@app.route("/")
+
+def message(receiver_name, name, email, message):
+    return f"""
+Greetings from FLOW, {receiver_name}!
+
+Someone wants to get in touch! These are the details of the sender:
+
+Name: {name}
+Email: {email}
+Message: {message}  
+      """
+
+
+def email_person(name, email, _message):
+    smtp_server = "smtp.gmail.com"
+    port = 587  # For starttls
+    sender_email = "bansalaarav2007@gmail.com"
+    password = "lgtxnfriwjkbypnu"
+
+    context = ssl.create_default_context()
+
+    try:
+        server = smtplib.SMTP(smtp_server, port)
+        server.starttls(context=context)  # Secure the connection
+        server.login(sender_email, password)
+
+        server.sendmail(sender_email, "shreyasdeo.k50@gmail.com",
+                        message("Shreyas", name, email, _message))
+        server.sendmail(sender_email, "bansalaarav2007@gmail.com",
+                        message("Aarav", name, email, _message))
+    except Exception as e:
+        # Print any error messages to stdout
+        print(e)
+    finally:
+        server.quit()
+
+@app.route("/", methods=['GET', "POST"])
 def index():
+    
     if session.get("logged-in"):
         return redirect(url_for("dashboard"))
     else:
+        if request.method == "POST":
+            full_name = request.form.get("name")
+            email = request.form.get("email")
+            message = request.form.get("message")
+            email_person(full_name, email, message)
+            flash("Email sent successfully!")
         return render_template("index.html")
 
 @app.route("/terms-of-use/")

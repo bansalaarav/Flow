@@ -196,10 +196,10 @@
             <h1>Drop us a message</h1>
             <p id="subtitle">Drop us a message for queries, or just to say "How do you do"!</p>
             <div class="wrapper" id="contact">
-                <form method="post">
-                    <input type="text" class="field" placeholder="Full Name" required> <br>
-                    <input type="email" class="field" placeholder="E-Mail" required> <br>
-                    <textarea rows="8" cols="20" style="height: 20vh; resize: none; padding-top: 1vh; margin-bottom: 3vh;" class="field" placeholder="Message" required></textarea>
+                <form method="post" action="/">
+                    <input type="text" class="field" placeholder="Full Name" name="name" required> <br>
+                    <input type="email" class="field" placeholder="E-Mail" name="email" required> <br>
+                    <textarea rows="8" cols="20" style="height: 20vh; resize: none; padding-top: 1vh; margin-bottom: 3vh;" name="message" class="field" placeholder="Message" required></textarea>
                     <input type="submit" value="High-Five" class="submit-button">
                 </form>
             </div>
