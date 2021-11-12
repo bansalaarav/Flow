@@ -316,10 +316,11 @@
 
         <!--Quiz Results-->
         <div class="result-container">
-            <img src="crown.png" alt="crown">
+            <img src="{{url_for('static', filename='crown.png')}}" alt="crown">
             <h1>Congratulations!</h1>
             <h2>You have successfully completed the Quiz with a score of <points id="result-score"><b>0</b></points> out of <b>10</b></h2>
-        </div>
+            <h2><a style="text-decoration: none; color: #2D89E1;" href="/dashboard/">Back To Dashboard</a></h3>
+            </div>
 
         <script type="text/javascript">
             let startTimer = false;
@@ -419,6 +420,7 @@
                     $(".result-container").css("align-items", "center");
                     $(".result-container").css("justify-content", "center");
                     $("#time-container").css("display", "none");
+                    $.post("/user-played-quiz", {_time: currentCount, _score: score})
                     clearInterval(countdown);
                 })
             })

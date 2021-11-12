@@ -172,7 +172,7 @@
           height: 15%;
           position: absolute;
           left: 50%;
-          top: 40%;
+          top: 43%;
           transform: translate(-50%, -50%);
           border-radius: 5vh;
           box-shadow: 0px 0px 40px 0px #2d89e1;
@@ -532,17 +532,17 @@
         <h3 class="quiz-stats-title">Quiz Stats</h3>
         <i class="fa fa-users"></i>
         <h5 class="num-of-ppl-title">Number of participants</h5>
-        <h1 class="num-of-ppl">50</h3>
+        <h1 class="num-of-ppl">{{num_of_ppl}}</h3>
         <i class="fa fa-clock-o"></i>
-        <h5 class="avg-time-title">Average Time</h5>
-        <h1 class="avg-time">20s</h3>
+        <h5 class="avg-time-title">Best Time</h5>
+        <h1 class="avg-time">{{best_time}}s</h3>
     </div>
     <div class="user-stats-1">
-        <h1 class="score">8/10</h1>
+        <h1 class="score">{{user_bs}}/10</h1>
         <h3 class="score-sub">is your best score till date</h3>
     </div>
     <div class="user-stats-2">
-        <h1 class="best-time">25s</h1>
+        <h1 class="best-time">{{user_bt}}s</h1>
         <h3 class="best-time-sub">is the fastest you have completed a quiz</h3>
     </div>
     <a class="play-button-wrapper" href="/quizzes/">

@@ -71,11 +71,15 @@
             .main-container .flex-container .big-feedback .user-review {
                 text-align: center;
                 color: black;
-                margin-left: 30%;
-                margin-top: -40%;
                 font-family: 'Product Sans Bold', serif;
                 font-size: 3.4vh;
                 padding: 3vh;
+                position: relative;
+                margin-left: 15%;
+                margin-right: 15%;
+                top:-50%;
+                left:50%;
+                transform: translate(-50%, -50%);
             }
 
             .main-container .flex-container .big-feedback .user-review quotation {
@@ -105,7 +109,10 @@
                 font-family: 'Product Sans Bold', serif;
                 font-size: 3.4vh;
                 padding: 3vh;
-                margin-top: 5%;
+                position: relative;
+                top:50%;
+                left:50%;
+                transform: translate(-50%, -50%);
             }
 
             .main-container .flex-container .smaller-feedback .user-review quotation {
@@ -134,21 +141,11 @@
 
                 .main-container .flex-container .big-feedback {
                     width: 90%;
-                    height: 40vw !important;
+                    height: 40vw ;
                     border-radius: 5vh;
                     background-color: white;
                 }
 
-                .main-container .flex-container .big-feedback .user-review {
-                    box-sizing: border-box;
-                    text-align: center;
-                    color: black;
-                    margin-left: 30%;
-                    font-family: 'Product Sans Bold', serif;
-                    font-size: 3.4vh;
-                    padding: 3vh;
-                    display: inline-block;
-                }
 
                 .main-container .flex-container .smaller-feedback {
                     width: 70%;
@@ -157,6 +154,8 @@
                     background-color: white;
                     position: absolute;
                     margin-top: 45vw;
+                    margin-left: 0;
+
                 }
 
 

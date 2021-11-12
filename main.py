@@ -12,12 +12,15 @@ db = SQLAlchemy(app)
 
 class User(db.Model):
 
-    __tablename__ = 'flowtable'
+    __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(15))
     last_name = db.Column(db.String(15))
     email = db.Column(db.String(50), unique=True)
     password = db.Column(db.String(256))
+    played_quiz = db.Column(db.Boolean, default=False)
+    best_score = db.Column(db.Integer, default=0)
+    best_time = db.Column(db.Integer, default=0)
 
 
 @app.route("/")
@@ -43,7 +46,19 @@ def blog():
 @app.route("/dashboard/")
 def dashboard():
     if session.get("logged-in"):
-        return render_template("dashboard.html")
+        num_of_ppl = 0
+        best_time = 0
+        users = User.query.all()
+        email = session["email"]
+        user = User.query.filter_by(email=email).first()
+        user_bs = user.best_score
+        user_bt = user.best_time
+        for user in users:
+            if user.played_quiz:
+                num_of_ppl += 1
+            if user.best_time > best_time:
+                best_time = user.best_time
+        return render_template("dashboard.html", num_of_ppl=num_of_ppl, best_time=best_time, user_bs=user_bs, user_bt=user_bt)
     else:
         return redirect(url_for("login"))
 
@@ -56,14 +71,32 @@ def quizzes():
 
 @app.route("/quizzes/<variable>/")
 def quizzes_(variable):
-    if variable == "quiz-1":
-        return render_template("quizzes/quiz-1.html")
-    elif variable == "quiz-2":
-        return render_template("quizzes/quiz-2.html")
+    if session.get("logged-in"):
+        if variable == "quiz-1":
+           return render_template("quizzes/quiz-1.html")
+        elif variable == "quiz-2":
+            return render_template("quizzes/quiz-2.html")
+        else:
+            return redirect(url_for("quizzes"))
+    else:
+        return redirect(url_for("login"))
 
-
-    return redirect(url_for("blog"))
-
+@app.route("/user-played-quiz", methods=["POST"])
+def user_played_quiz():
+    time_ = 60 - int(request.form["_time"])
+    score = int(request.form["_score"])
+    email = session["email"]
+    user = User.query.filter_by(email=email).first()
+    if not user.played_quiz:
+        user.played_quiz = True
+        db.session.commit()
+    if user.best_time > time_ or user.best_time == 0:
+        user.best_time = time_
+        db.session.commit()
+    if user.best_score < score:
+        user.best_score = score
+        db.session.commit()
+    return "None"
 
 @app.route("/blog/<variable>/")
 def blog_pages(variable):
