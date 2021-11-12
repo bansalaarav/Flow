@@ -92,25 +92,41 @@ def blog():
 def dashboard():
     if session.get("logged-in"):
         num_of_ppl = 0
-        best_time = 0
+        best_times = []
         users = User.query.all()
         email = session["email"]
-        user = User.query.filter_by(email=email).first()
-        user_bs = user.best_score
-        user_bt = user.best_time
+        user_ = User.query.filter_by(email=email).first()
+        user_bs = user_.best_score
+        user_bt = user_.best_time
         for user in users:
             if user.played_quiz:
                 num_of_ppl += 1
-            if user.best_time > best_time:
-                best_time = user.best_time
-        return render_template("dashboard.html", num_of_ppl=num_of_ppl, best_time=best_time, user_bs=user_bs, user_bt=user_bt)
+            if user.best_time != 0:
+                best_times.append(user.best_time)
+        if best_times:
+            val = min(best_times)
+        else:
+            val = 0
+
+        return render_template("dashboard.html", num_of_ppl=num_of_ppl, best_time=val, user_bs=user_bs, user_bt=user_bt)
     else:
         return redirect(url_for("login"))
 
 @app.route("/quizzes/")
 def quizzes():
     if session.get("logged-in"):
-        return render_template("quizzes.html")
+        scores = {}
+        users = User.query.all()
+        for user in users:
+            if user.best_time == 0:
+                v = 0
+            else:
+                v = user.best_score/user.best_time
+            scores[f"{user.first_name} {user.last_name}"] = v
+        res = sorted(scores, key = lambda x: x[1], reverse=True)[:5]
+       
+        
+        return render_template("quizzes.html", people=res)
     else:
         return redirect(url_for("login"))
 
@@ -128,18 +144,16 @@ def quizzes_(variable):
 
 @app.route("/user-played-quiz", methods=["POST"])
 def user_played_quiz():
-    time_ = 60 - int(request.form["_time"])
-    score = int(request.form["_score"])
+    time_ = 60 - int(request.form["_time"]) # 5 sec or 10 sec
+    score = int(request.form["_score"]) # 10 or 7 or 2
     email = session["email"]
     user = User.query.filter_by(email=email).first()
     if not user.played_quiz:
         user.played_quiz = True
         db.session.commit()
-    if user.best_time > time_ or user.best_time == 0:
-        user.best_time = time_
-        db.session.commit()
     if user.best_score < score:
         user.best_score = score
+        user.best_time = time_
         db.session.commit()
     return "None"
 

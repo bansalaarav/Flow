@@ -275,7 +275,6 @@
         <nav>
             <div id="logo"><a href="/">FLOW</a></div>
             <ul>
-                <li id="first-child"><a href="/">Home</a></li>
                 <li><a href="/dashboard/">Dashboard</a></li>
                 <li><a href="/logout/">Logout</a></li>
             </ul>
@@ -288,7 +287,6 @@
                 <i class="fa fa-times"></i>
             </div>
             <ul>
-                <li><a href="/" class="full-menu-link-item">Home</a></li>
                 <li><a href="/dashboard/" class="full-menu-link-item">Dashboard</a></li>
                 <li id="last-child" class="full-menu-link-item"><a href="/logout/">Logout</a></li>
             </ul>
@@ -342,11 +340,11 @@
 
             <div class="leaderboard">
                 <div id="tit">Leaderboard</div>
-                <li><pos>1</pos> some_user</li>
-                <li><pos>2</pos> some_user</li>
-                <li><pos>3</pos> some_user</li>
-                <li><pos>4</pos> some_user</li>
-                <li><pos>5</pos> some_user</li>
+                {% for person in people %}
+                <li><pos>{{people.index(person)+1}}</pos> {{person}}</li>
+                
+                {% endfor %}
+
             </div>
         </div>
         <script>
