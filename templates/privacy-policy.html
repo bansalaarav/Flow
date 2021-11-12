@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
+        <link rel="icon" href="{{url_for('static', filename='flow_logo.png')}}" type="image/icon type">
         <style media="screen">
             @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
@@ -12,6 +13,11 @@
             @font-face {
               font-family: "Product Sans Bold";
               src: url("./ProductSansBold.ttf");
+            }
+
+            ::selection {
+                background-color: black;
+                color: white;
             }
 
             body {

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link rel="icon" href="{{url_for('static', filename='flow_logo.png')}}" type="image/icon type">
     <meta charset="utf-8">
     <title>FLOW</title>
     <style media="screen">
@@ -12,6 +13,11 @@
           font-family: 'Product Sans Regular', serif;
           padding: 0;
           margin: 0;
+      }
+
+      ::selection {
+          background-color: black;
+          color: white;
       }
 
       #image-container {
