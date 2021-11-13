@@ -437,7 +437,7 @@
             let countdown = setInterval(timer, 100)
             function timer() {
                 if (startTimer && currentCount>0) {
-                    document.getElementById("count-timer").innerHTML = Math.round((currentCount - 0.1)*10)/10;
+                    document.getElementById("count-timer").innerHTML = currentCount;
                     currentCount = Math.round((currentCount - 0.1)*10)/10;
                 } else if (currentCount<=0) {
                     if (score < 3) {
