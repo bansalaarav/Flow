@@ -311,7 +311,7 @@
         <!--Quiz Results-->
         <div class="result-container">
             <img src="{{url_for('static', filename='crown.png')}}" alt="crown">
-            <h1>Congratulations!</h1>
+            <h1 id="result-title"></h1>
             <h2>You have successfully completed the Quiz with a score of <points id="result-score"><b>0</b></points> out of <b>10</b></h2>
             <h2><a style="text-decoration: none; color: #2D89E1;" href="/dashboard/">Back To Dashboard</a></h3>
             </div>
@@ -415,7 +415,22 @@
                     $(".result-container").css("justify-content", "center");
                     $("#time-container").css("display", "none");
                     $.post("/user-played-quiz", {_time: Math.round(currentCount*10)/10, _score: score})
+                    if (score < 3) {
+                        ttl = "You can do better..."
+                    }
+                    else if (score >= 3 || score < 7) {
+                        ttl = "You're getting there!"
+                    }
+                    else {
+                        ttl = "Amazing! Try and see if you can score this will in our other quizzes!"
+                    }
+                    $("#time-container").css("display", "none");
+                    $("#question-parent").css("display", "none");
+                    $("#result-score").text(score);
+                    $("#result-title").text(ttl);
+                    $(".result-container").css("display", "block");
                     clearInterval(countdown);
+                    return;
                 })
             })
 
@@ -425,13 +440,20 @@
                     document.getElementById("count-timer").innerHTML = currentCount;
                     currentCount = Math.round((currentCount - 0.1)*10)/10;
                 } else if (currentCount<=0) {
+                    if (score < 3) {
+                        ttl = "You can do better..."
+                    }
+                    else if (score >= 3 || score < 7) {
+                        ttl = "You're getting there!"
+                    }
+                    else {
+                        ttl = "Amazing! Try and see if you can score this will in our other quizzes!"
+                    }
                     $("#time-container").css("display", "none");
                     $("#question-parent").css("display", "none");
                     $("#result-score").text(score);
-                    $(".result-container").css("display", "flex");
-                    $(".result-container").css("flex-direction", "column");
-                    $(".result-container").css("align-items", "center");
-                    $(".result-container").css("justify-content", "center");
+                    $("#result-title").text(ttl);
+                    $(".result-container").css("display", "block");
                     clearInterval(countdown);
                     return;
                 }

@@ -160,6 +160,8 @@ def quizzes_(variable):
             return render_template("quizzes/quiz-2.html")
         elif variable == "quiz-3":
             return render_template("quizzes/quiz-3.html")
+        elif variable == "quiz-4":
+            return render_template("quizzes/quiz-4.html")
         else:
             return redirect(url_for("quizzes"))
     else:
