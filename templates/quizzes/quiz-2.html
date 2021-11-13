@@ -421,7 +421,7 @@
                     $(".result-container").css("align-items", "center");
                     $(".result-container").css("justify-content", "center");
                     $("#time-container").css("display", "none");
-                    $.post("/user-played-quiz", {_time: currentCount, _score: score})
+                    $.post("/user-played-quiz", {_time: Math.round(currentCount*10)/10, _score: score})
                     clearInterval(countdown);
                 })
             })
@@ -429,8 +429,8 @@
             let countdown = setInterval(timer, 1000)
             function timer() {
                 if (startTimer && currentCount>0) {
-                    document.getElementById("count-timer").innerHTML = currentCount - 1;
-                    currentCount = currentCount - 1;
+                    document.getElementById("count-timer").innerHTML = currentCount;
+                    currentCount = Math.round((currentCount - 0.1)*10)/10;
                 } else if (currentCount<=0) {
                     $("#time-container").css("display", "none");
                     $("#question-parent").css("display", "none");

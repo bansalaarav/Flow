@@ -9,6 +9,7 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '!9m@S-dThyIlW[pHQbN^AAAAAAAAAAAAAAAAAAA'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///flow.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 db = SQLAlchemy(app)
 
@@ -22,7 +23,7 @@ class User(db.Model):
     password = db.Column(db.String(256))
     played_quiz = db.Column(db.Boolean, default=False)
     best_score = db.Column(db.Integer, default=0)
-    best_time = db.Column(db.Integer, default=0)
+    best_time = db.Column(db.Float, default=0)
 
 
 
@@ -109,11 +110,11 @@ def dashboard():
             if user.best_time != 0:
                 best_times.append(user.best_time)
         if best_times:
-            val = min(best_times)
+            val = round(min(best_times), 1)
         else:
             val = 0
 
-        return render_template("dashboard.html", num_of_ppl=num_of_ppl, best_time=val, user_bs=user_bs, user_bt=user_bt)
+        return render_template("dashboard.html", num_of_ppl=num_of_ppl, best_time=val, user_bs=user_bs, user_bt=round(user_bt, 1))
     else:
         return redirect(url_for("login"))
 
@@ -124,11 +125,23 @@ def quizzes():
         users = User.query.all()
         for user in users:
             if user.best_time == 0:
-                v = 0
+                pass
             else:
                 v = user.best_score/user.best_time
-            scores[f"{user.first_name} {user.last_name}"] = v
-        res = sorted(scores, key = lambda x: x[1], reverse=True)[:5]
+                scores[f"{user.first_name} {user.last_name}"] = v
+        if scores:
+            # temp = None
+            # num_of_sames = 0
+            # for score in scores:
+                
+            #     if score == temp:
+            #         same = scores.index(score) + 1
+            #         num_of_sames += 1
+            #     else:
+            #         temp = score
+            res = sorted(scores, key = lambda x: x[1], reverse=True)[:5]
+        else:
+            res = []
        
         
         return render_template("quizzes.html", people=res)
@@ -149,7 +162,8 @@ def quizzes_(variable):
 
 @app.route("/user-played-quiz", methods=["POST"])
 def user_played_quiz():
-    time_ = 60 - int(request.form["_time"]) # 5 sec or 10 sec
+    time_ = round(60 - float(request.form["_time"]), 1)
+    print(time_)
     score = int(request.form["_score"]) # 10 or 7 or 2
     email = session["email"]
     user = User.query.filter_by(email=email).first()
@@ -160,6 +174,11 @@ def user_played_quiz():
         user.best_score = score
         user.best_time = time_
         db.session.commit()
+    elif user.best_score == score:
+        if user.best_time > time_:
+            user.best_time = time_
+            db.session.commit()
+        
     return "None"
 
 @app.route("/blog/<variable>/")
