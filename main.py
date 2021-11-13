@@ -35,7 +35,7 @@ Someone wants to get in touch! These are the details of the sender:
 
 Name: {name}
 Email: {email}
-Message: {message}  
+Message: {message}
       """
 
 
@@ -64,7 +64,7 @@ def email_person(name, email, _message):
 
 @app.route("/", methods=['GET', "POST"])
 def index():
-    
+
     if session.get("logged-in"):
         return redirect(url_for("dashboard"))
     else:
@@ -136,7 +136,7 @@ def quizzes():
             # temp = None
             # num_of_sames = 0
             # for score in scores:
-                
+
             #     if score == temp:
             #         same = scores.index(score) + 1
             #         num_of_sames += 1
@@ -145,8 +145,8 @@ def quizzes():
             res = sorted(scores, key = lambda x: x[1], reverse=True)[:5]
         else:
             res = []
-       
-        
+
+
         return render_template("quizzes.html", people=res)
     else:
         return redirect(url_for("login"))
@@ -183,7 +183,7 @@ def user_played_quiz():
         if user.best_time > time_:
             user.best_time = time_
             db.session.commit()
-        
+
     return "None"
 
 @app.route("/blog/<variable>/")
@@ -196,6 +196,8 @@ def blog_pages(variable):
         return render_template("blogs/blog-3.html")
     elif variable == "drones-and-sdgs":
         return render_template("blogs/blog-4.html")
+    elif variable == "future-of-drones":
+        return render_template("blogs/blog-5.html")
 
     return redirect(url_for("blog"))
 
