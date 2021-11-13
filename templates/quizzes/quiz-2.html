@@ -56,10 +56,6 @@
                 color: white !important;
             }
 
-            .result-container {
-                width: 90% !important;
-            }
-
             @media (max-width: 1000px) {
                 .result-container {
                     width: 90%;
@@ -311,6 +307,7 @@
                     <block-footer>
                         <option class="button" id="set10-skip">See Quiz Results</option>
                     </block-footer>
+                    </div>
                 </div>
             </div>
         </div>
@@ -319,15 +316,15 @@
         <div class="result-container">
             <img src="{{url_for('static', filename='crown.png')}}" alt="crown">
             <h1 id="result-title"></h1>
-            <h1>Congratulations!</h1>
             <h2>You have successfully completed the Quiz with a score of <points id="result-score"><b>0</b></points> out of <b>10</b></h2>
+            <h2><a style="text-decoration: none; color: #2D89E1;" href="/dashboard/">Back To Dashboard</a></h2>
         </div>
 
         <!--Tab/Window Change-->
         <div class="result-container tabchange">
-            <img src="{{url_for('static', filename='liar.png')}}" alt="crown">
+            <img src="{{url_for('static', filename='liar.png')}}" alt="pref">
             <br>
-            <h2 style="color: red;">Tab/Window change detected</h2>
+            <h1 style="color: red;">Tab/Window change detected</h2>
             <h2>Your quiz score will not be counted</h2>
             <br>
             <h2><a style="text-decoration: none; color: #2D89E1;" href="/dashboard/">Back To Dashboard</a></h2>
@@ -430,8 +427,8 @@
                     $(".result-container").css("flex-direction", "column");
                     $(".result-container").css("align-items", "center");
                     $(".result-container").css("justify-content", "center");
-                    $("#time-container").css("display", "none");
                     $(".tabchange").css("display", "none");
+                    $("#time-container").css("display", "none");
                     startTimer = false;
                     clearInterval(countdown);
                 })
@@ -440,7 +437,7 @@
             let countdown = setInterval(timer, 100)
             function timer() {
                 if (startTimer && currentCount>0) {
-                    document.getElementById("count-timer").innerHTML = currentCount - 1;
+                    document.getElementById("count-timer").innerHTML = Math.round((currentCount - 0.1)*10)/10;
                     currentCount = Math.round((currentCount - 0.1)*10)/10;
                 } else if (currentCount<=0) {
                     if (score < 3) {
@@ -471,11 +468,7 @@
               if (startTimer && document.visibilityState != "visible") {
                   $("#time-container").css("display", "none");
                   $("#question-parent").css("display", "none");
-                  $(".result-container").css("display", "flex");
-                  $(".result-container").css("flex-direction", "column");
-                  $(".result-container").css("align-items", "center");
-                  $(".result-container").css("justify-content", "center");
-                  $(".tabchange").css("display", "none");
+                  $(".tabchange").css("display", "block");
                   clearInterval(countdown);
               }
             })
