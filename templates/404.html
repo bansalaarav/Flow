@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404</title>
+    <style>
+        @font-face {
+            font-family: "Product Sans Bold";
+            src: url("../static/ProductSansBold.ttf");
+        }
+
+        @font-face {
+            font-family: "Product Sans Regular";
+            src: url("../static/ProductSansRegular.ttf");
+        }
+        body {
+            background: url("{{url_for('static', filename='404.png')}}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: "Product Sans Regular";
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            font-size: 5vh;
+        }
+        
+        #sub1 {
+            text-align: center;
+            color: white;
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: normal;
+            font-size: 2.5vh;
+        }
+
+        #sub2 {
+            text-align: center;
+            position: relative;
+            top: -30%;
+            
+            font-weight: normal;
+            font-size: 4vh;
+        }
+        
+        div {
+            color: white;
+            position: absolute;
+            top: 91%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 80px;
+            border: 5px solid white;
+        }
+
+        div:hover {
+            background-color: #2D89E1;
+        }
+    </style>
+</head>
+<body>
+    <h1>We looked high and low but...</h1>
+    <h3 id="sub1">the page you’re looking for could not be found...</h3>
+    <a href="/">
+        <div>
+            <h3 id="sub2">Let's take you back home</h3>
+        </div>
+    </a>
+</body>
+</html>

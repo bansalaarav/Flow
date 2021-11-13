@@ -89,6 +89,9 @@ def privacy_policy():
 def blog():
     return render_template("blog-page.html")
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("404.html")
 
 @app.route("/about/")
 def about():
