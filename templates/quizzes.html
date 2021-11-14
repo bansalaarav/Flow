@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
     <head>
         <link rel="icon" href="{{url_for('static', filename='flow_logo.png')}}" type="image/icon type">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>QuizMe! by FLOW</title>
@@ -266,6 +267,8 @@
 
 
              @media (max-width: 1000px) {
+                 #tit {font-size: 7vw;}
+                 .leaderboard li {font-size: 5vw;}
                  body {margin-left: 3%; margin-right: 3%;}
                 .main-flex {flex-direction: column;}
                 .quizme {margin-bottom: 5vh; width: 100%;}
@@ -344,7 +347,7 @@
                 <div id="tit">Leaderboard</div>
                 {% for person in people %}
                 <li><pos>{{people.index(person)+1}}</pos> {{person}}</li>
-                
+
                 {% endfor %}
 
             </div>
