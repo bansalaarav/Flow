@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
     <head>
         <link rel="icon" href="{{url_for('static', filename='flow_logo.png')}}" type="image/icon type">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <style media="screen">
         @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
@@ -150,6 +151,7 @@
                     display: block;
                 }
             }
+
             /* Navbar Code ---------------------------- */
 
             .background-container-item1 {
@@ -183,15 +185,6 @@
                 text-align: center;
             }
 
-            @media (max-width: 700px) {
-                .background-container-item1 h1 {
-                    font-size: 10vh !important;
-                }
-                .background-container-item1 h2 {
-                    font-size: 4vh !important;
-                }
-            }
-
             .background-container-item1 a {
                 font-family: 'Product Sans Bold', fantasy;
                 color: white;
@@ -217,12 +210,6 @@
                 gap: 5vh;
             }
 
-            @media (max-width: 750px) {
-                .content-item2 {
-                    flex-direction: column;
-                }
-            }
-
             .content-item2 .card {
                 border: 0.5vh dashed lightgray;
                 border-radius: 0.5vh;
@@ -245,6 +232,20 @@
                 width: 40vh;
                 display: block;
                 padding-bottom: 5vh;
+            }
+
+            @media (max-width: 850px) {
+                .content-item2 {
+                    flex-direction: column;
+                }
+
+                .background-container-item1 h1 {
+                    font-size: 20vw;
+                }
+
+                .background-container-item1 h2 {
+                    font-size: 8vw;
+                }
             }
         </style>
         <meta charset="utf-8">
