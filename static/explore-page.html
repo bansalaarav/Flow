@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
-      <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta name="viewport" content="width=device-width,initial-scale=1">
         <style media="screen">
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
             @font-face {
                 font-family: 'Product Sans Bold';
                 src: url("/static/ProductSansBold.ttf");
@@ -13,134 +18,95 @@
                 src: url("/static/ProductSansRegular.ttf");
             }
 
-            .container {
-                background-color: black;
-                height: 100vh;
+            .main-holder {
                 width: 100%;
+                background-color: black;
+                padding: 15vh;
                 box-sizing: border-box;
-                padding-left: 5vh;
-                padding-right: 5vh;
-                padding-bottom: 5vh;
-                padding-top: 1vh;
             }
 
-            .container h1 {
-                font-family: 'Product Sans Bold', monospace;
-                font-size: 10vh;
-                color: white;
-                margin-top: 3vh;
-                margin-bottom: 5vh;
-            }
-
-            .container-flexbox {
-                width: 80%;
-                height: 75%;
+            .white-rounded {
+                width: 100%;
                 background-color: white;
                 border-radius: 5vh;
+                padding: 5vh;
                 display: flex;
-                justify-content: space-around;
+                justify-content: space-evenly;
                 box-sizing: border-box;
-                padding: 3vh;
                 box-shadow: 0 0 2vh 0.5vh white;
-                margin-left: 10%;
-                margin-top: 8%;
             }
 
-            .container-flexbox .content {
+            .white-rounded .section {
                 width: 45%;
-                height: 100%;
-                box-sizing: border-box;
-                padding: 2vh;
                 text-align: center;
             }
 
-            .container-flexbox heading {
-                font-family: 'Product Sans Bold', serif;
+            .white-rounded .section h1 {
+                font-family: 'Product Sans Bold', monospace;
                 font-size: 10vh;
-                display: block;
-                padding-bottom: 2vh;
-
-                text-align: center;
+                padding-bottom: 5vh;
             }
 
-            .container-flexbox description {
-                font-family: 'Product Sans Regular', sans-serif;
+            .white-rounded .section p {
+                font-family: 'Product Sans Regular', serif;
                 font-size: 5vh;
                 padding-bottom: 5vh;
-                display: block;
             }
 
-            .container-flexbox button {
+            .white-rounded .section a button {
                 font-family: 'Product Sans Regular', sans-serif;
                 font-size: 3vh;
-                height: 7vh;
-                width: 40vh;
                 border-radius: 10vh;
-                padding: 1vh;
+                padding: 2.4vh;
                 border: none;
                 background-color: #2788E4;
                 color: white;
+                width: 45vh;
                 box-shadow: 0 0 2vh 0.5vh #2788E4;
+                margin: 2vh;
             }
 
-            .container-flexbox button:hover {
+            .white-rounded .section a button:hover {
                 box-shadow: 0 0 1vh 0.1vh #2788E4;
                 cursor: pointer;
             }
 
-            @media (max-width: 1150px) {
-                .container-flexbox {
+            @media (max-width: 955px) {
+                .main-holder {
+                    padding: 8vh;
+                }
+
+                .white-rounded {
                     flex-direction: column;
                 }
 
-                .container {
-                    height: 190vh;
-                }
-
-                .container-flexbox {
-                    height: 85%;
-                }
-
-                .container-flexbox .content {
-                    height: 45%;
+                .white-rounded .section {
                     width: 100%;
+                }
+
+                .white-rounded .section a button {
+                    margin-bottom: 5vh;
                 }
             }
 
-            @media (max-width: 800px) {
-                .container-flexbox heading {
-                    font-size: 8vh;
-                    padding-bottom: 1vh;
+            @media (max-width: 525px) {
+                .white-rounded .section a button {
+                    margin-left: -2%;
                 }
-
-                .container-flexbox description {
-                    font-family: 'Product Sans Regular', sans-serif;
-                    font-size: 6vw;
-                    padding-bottom: 3vh;
-                    display: block;
-                    text-align: left;
-                    text-align: center;
-                }
-
-                .container-flexbox button {
-                    width: 30vw;
-                    font-size: 4vw;
-                }
-
             }
         </style>
     </head>
-    <body style="margin: 0; padding: 0;">
-        <div class="container" id="explore">
-            <div class="container-flexbox">
-                <div class="content">
-                    <heading>Blog</heading>
-                    <description style="font-size: 4.8vh;">Want to learn about Drone technology and how it works? Head on over to our blog section to read all of this and much more!</description>
+    <body>
+        <div class="main-holder" id="explore">
+            <div class="white-rounded">
+                <div class="section">
+                    <h1>Blog</h1>
+                    <p>Want to learn about Drone technology and how it works? Head on over to our blog section to read all of this and much more!</p>
                     <a href="/blog/"><button>What are you waiting for?</button></a>
                 </div>
-                <div class="content">
-                    <heading>Quiz</heading>
-                    <description>Play our quiz to test your knowledge of Drone technology and get a report of your performance too.</description>
+                <div class="section">
+                    <h1>Section</h1>
+                    <p>Play our quiz to test your knowledge of Drone technology and get a report of your performance too.</p>
                     <a href="/login/"><button>Login to play!</button></a>
                 </div>
             </div>
