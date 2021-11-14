@@ -15,6 +15,10 @@
                 background-color: var(--primaryColor);
             }
 
+            body {
+                background-color: var(--primaryColor);
+            }
+
             #main-button {
                  background-color: var(--primaryColor);
             }
@@ -57,13 +61,19 @@
                 color: white !important;
             }
 
-            @media (max-width: 1000px) {
+            @media (max-width: 1100px) {
                 .result-container {
                     width: 90%;
+                    height: 60%;
                 }
 
                 body {
                     background-color: "#B364D6" !important;
+                }
+
+                .liar-img {
+                    width: 40vw !important;
+                    height: 25vh !important;
                 }
             }
         </style>
@@ -323,7 +333,7 @@
 
         <!--Tab/Window Change-->
         <div class="result-container tabchange">
-            <img src="{{url_for('static', filename='liar.png')}}" alt="pref">
+            <img class="liar-img" src="{{url_for('static', filename='liar.png')}}" alt="pref">
             <br>
             <h1 style="color: red;">Tab/Window change detected</h2>
             <h2>Your quiz score will not be counted</h2>
