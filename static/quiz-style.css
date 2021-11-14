@@ -217,6 +217,22 @@
     display: block;
 }
 
+@media (max-width: 1100px) {
+    .result-container {
+        width: 90%;
+        height: 60%;
+    }
+
+    body {
+        background-color: "#B364D6" !important;
+    }
+
+    .liar-img {
+        width: 40vw !important;
+        height: 25vh !important;
+    }
+}
+
 @media (max-width: 1000px) {
     .question .button {width: 100%;}
     body {background-color: #2D89E1;}

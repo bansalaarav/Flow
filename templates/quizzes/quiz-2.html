@@ -325,7 +325,7 @@
 
         <!--Quiz Results-->
         <div class="result-container">
-            <img src="{{url_for('static', filename='crown.png')}}" alt="crown">
+            <img class="liar-img" src="{{url_for('static', filename='crown.png')}}" alt="crown">
             <h1 id="result-title"></h1>
             <h2>You have successfully completed the Quiz with a score of <points id="result-score"><b>0</b></points> out of <b>10</b></h2>
             <h2><a style="text-decoration: none; color: #2D89E1;" href="/dashboard/">Back To Dashboard</a></h2>
@@ -454,7 +454,7 @@
                     if (score < 3) {
                         ttl = "You can do better..."
                     }
-                    else if (score >= 3 || score < 7) {
+                    else if (score >= 3 && score < 7) {
                         ttl = "You're getting there!"
                     }
                     else {

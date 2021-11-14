@@ -57,13 +57,19 @@
                 color: white !important;
             }
 
-            @media (max-width: 1000px) {
+            @media (max-width: 1100px) {
                 .result-container {
                     width: 90%;
+                    height: 60%;
                 }
 
                 body {
-                    background-color: "#A1D6B5" !important;
+                    background-color: "#B364D6" !important;
+                }
+
+                .liar-img {
+                    width: 40vw !important;
+                    height: 25vh !important;
                 }
             }
         </style>
@@ -232,11 +238,11 @@
 
                     <question>Which goal does SDG-2 promote?</question>
                     <div class="options">
-                        <option class="options-choices correct" style="margin-top: 2vh;">Gender equality</option>
+                        <option class="options-choices" style="margin-top: 2vh;">Gender equality</option>
                     </div><div class="options">
                         <option class="options-choices">Quality education</option>
                     </div><div class="options">
-                        <option class="options-choices">Zero hunger</option>
+                        <option class="options-choices correct">Zero hunger</option>
                     </div><div class="options">
                         <option class="options-choices">Clean water and sanitation</option>
                     </div>
@@ -311,7 +317,7 @@
 
         <!--Quiz Results-->
         <div class="result-container">
-            <img src="{{url_for('static', filename='crown.png')}}" alt="crown">
+            <img class="liar-img" src="{{url_for('static', filename='crown.png')}}" alt="crown">
             <h1 id="result-title"></h1>
             <h2>You have successfully completed the Quiz with a score of <points id="result-score"><b>0</b></points> out of <b>10</b></h2>
             <h2><a style="text-decoration: none; color: #2D89E1;" href="/dashboard/">Back To Dashboard</a></h3>
@@ -319,7 +325,7 @@
 
         <!--Tab/Window Change-->
         <div class="result-container tabchange">
-            <img src="{{url_for('static', filename='liar.png')}}" alt="crown">
+            <img class="liar-img" src="{{url_for('static', filename='liar.png')}}" alt="crown">
             <br>
             <h2 style="color: red;">Tab/Window change detected</h2>
             <h2>Your quiz score will not be counted</h2>
@@ -429,7 +435,7 @@
                     if (score < 3) {
                         ttl = "You can do better..."
                     }
-                    else if (score >= 3 || score < 7) {
+                    else if (score >= 3 && score < 7) {
                         ttl = "You're getting there!"
                     }
                     else {
@@ -456,7 +462,7 @@
                     if (score < 3) {
                         ttl = "You can do better..."
                     }
-                    else if (score >= 3 || score < 7) {
+                    else if (score >= 3 && score < 7) {
                         ttl = "You're getting there!"
                     }
                     else {
